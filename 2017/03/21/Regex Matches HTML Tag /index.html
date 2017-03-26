@@ -3,18 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archivos: 2017/2 | Hexo</title>
+  <title>regex matches html tag | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/02/index.html">
+  <meta name="description" content="The Regex to Match Any HTML Tag1&amp;lt;(?&amp;lt;HtmlTag&amp;gt;[\w]+)[^&amp;gt;]*?&amp;gt;((?&amp;lt;Nested&amp;gt;&amp;lt;\k&amp;lt;HtmlTag&amp;gt;[^&amp;gt;]*&amp;gt;)|&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;(?&amp;lt;-Nested&amp;gt;)|.*?)*&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Regex Matches HTML Tag">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/Regex Matches HTML Tag /index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="The Regex to Match Any HTML Tag1&amp;lt;(?&amp;lt;HtmlTag&amp;gt;[\w]+)[^&amp;gt;]*?&amp;gt;((?&amp;lt;Nested&amp;gt;&amp;lt;\k&amp;lt;HtmlTag&amp;gt;[^&amp;gt;]*&amp;gt;)|&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;(?&amp;lt;-Nested&amp;gt;)|.*?)*&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;">
+<meta property="og:updated_time" content="2017-03-17T06:59:26.301Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Regex Matches HTML Tag">
+<meta name="twitter:description" content="The Regex to Match Any HTML Tag1&amp;lt;(?&amp;lt;HtmlTag&amp;gt;[\w]+)[^&amp;gt;]*?&amp;gt;((?&amp;lt;Nested&amp;gt;&amp;lt;\k&amp;lt;HtmlTag&amp;gt;[^&amp;gt;]*&amp;gt;)|&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;(?&amp;lt;-Nested&amp;gt;)|.*?)*&amp;lt;/\k&amp;lt;HtmlTag&amp;gt;&amp;gt;">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -46,8 +50,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -72,7 +74,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -141,107 +143,100 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>Es gibt insgesamt 12 Beiträge bis jetzt.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/02/04/git-guide/" class="archive-article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-Regex Matches HTML Tag " style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/git-guide/">Git-Guide</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Regex Matches HTML Tag
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/Regex Matches HTML Tag /" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.096Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="The-Regex-to-Match-Any-HTML-Tag"><a href="#The-Regex-to-Match-Any-HTML-Tag" class="headerlink" title="The Regex to Match Any HTML Tag"></a>The Regex to Match Any HTML Tag</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;[\w]+)[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-div-Tag"><a href="#The-Regex-to-Match-div-Tag" class="headerlink" title="The Regex to Match div Tag"></a>The Regex to Match div Tag</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;div)[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-some-HTML-Tags"><a href="#The-Regex-to-Match-some-HTML-Tags" class="headerlink" title="The Regex to Match some HTML Tags"></a>The Regex to Match some HTML Tags</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;(div|span|h1))[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-Tags-Include-ID"><a href="#The-Regex-to-Match-Tags-Include-ID" class="headerlink" title="The Regex to Match Tags Include ID"></a>The Regex to Match Tags Include ID</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;[\w]+)[^&gt;]*\s[iI][dD]=(?&lt;Quote&gt;[<span class="string">"']?)footer(?(Quote)\k&lt;Quote&gt;)[^&gt;]*?(/&gt;|&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;)</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/21/Regex Matches HTML Tag /" data-title="Regex Matches HTML Tag" data-url="http://yoursite.com/2017/03/21/Regex Matches HTML Tag /"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"LeonJoe"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/21/SQL Server Trigger/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          SQL Server Trigger
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/Linq To Sql CRUD/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">Linq To Sql CRUD</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Regex-to-Match-Any-HTML-Tag"><span class="toc-number">1.</span> <span class="toc-text">The Regex to Match Any HTML Tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Regex-to-Match-div-Tag"><span class="toc-number">2.</span> <span class="toc-text">The Regex to Match div Tag</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Regex-to-Match-some-HTML-Tags"><span class="toc-number">3.</span> <span class="toc-text">The Regex to Match some HTML Tags</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Regex-to-Match-Tags-Include-ID"><span class="toc-number">4.</span> <span class="toc-text">The Regex to Match Tags Include ID</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/">Transform Between Column and Row etc Classic SQLs</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/SQL Server Trigger/">SQL Server Trigger</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Regex Matches HTML Tag /">Regex Matches HTML Tag</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Linq To Sql CRUD/">Linq To Sql CRUD</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Js&Jquery practical Skills Collection/">Js&amp;Jquery practical Skills Collection</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -332,6 +327,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 

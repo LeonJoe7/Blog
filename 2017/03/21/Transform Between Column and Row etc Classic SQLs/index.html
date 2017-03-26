@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>transform between column and row etc classic sqls | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="Tip1:Transformation Between Column and Row1234567891011121314151617181920212223242526create table cj  --Create Table cj(    ID       Int IDENTITY (1,1)     not null,     Name     Varchar(50),       Su">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Transform Between Column and Row etc Classic SQLs">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/Transform Between Column and Row etc Classic SQLs/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Tip1:Transformation Between Column and Row1234567891011121314151617181920212223242526create table cj  --Create Table cj(    ID       Int IDENTITY (1,1)     not null,     Name     Varchar(50),       Su">
+<meta property="og:updated_time" content="2017-03-17T06:51:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Transform Between Column and Row etc Classic SQLs">
+<meta name="twitter:description" content="Tip1:Transformation Between Column and Row1234567891011121314151617181920212223242526create table cj  --Create Table cj(    ID       Int IDENTITY (1,1)     not null,     Name     Varchar(50),       Su">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categorías</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-Transform Between Column and Row etc Classic SQLs" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Transform Between Column and Row etc Classic SQLs
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.104Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Tip1-Transformation-Between-Column-and-Row"><a href="#Tip1-Transformation-Between-Column-and-Row" class="headerlink" title="Tip1:Transformation Between Column and Row"></a>Tip1:Transformation Between Column and Row</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">create table cj  --Create Table cj</div><div class="line">(</div><div class="line">    ID       Int IDENTITY (1,1)     not null, </div><div class="line">    Name     Varchar(50),   </div><div class="line">    Subject  Varchar(50),</div><div class="line">    Result   Int,  </div><div class="line">    primary key (ID)      --define ID as PK of table cj      </div><div class="line">);</div><div class="line">--Truncate table cj</div><div class="line">--Select * from cj</div><div class="line">Insert into cj</div><div class="line">Select <span class="string">'John'</span>,<span class="string">'English'</span>,80 union all </div><div class="line">Select <span class="string">'Lily'</span>,<span class="string">'Math'</span>,90 union all</div><div class="line">Select <span class="string">'Bob'</span>,<span class="string">'Physics'</span>,85 union all</div><div class="line">Select <span class="string">'Robert'</span>,<span class="string">'PE'</span>,85 union all</div><div class="line">Select <span class="string">'Lily'</span>,<span class="string">'English'</span>,82 union all</div><div class="line">Select <span class="string">'Bob'</span>,<span class="string">'PE'</span>,90 union all</div><div class="line">Select <span class="string">'John'</span>,<span class="string">'Physics'</span>,70 union all</div><div class="line">Select <span class="string">'Robert'</span>,<span class="string">'English'</span>,90</div><div class="line">--transformation between column and row</div><div class="line">Declare @sql varchar(8000)</div><div class="line">Set @sql = <span class="string">'Select Name'</span></div><div class="line">Select @sql = @sql + <span class="string">',sum(case Subject when '</span><span class="string">''</span>+Subject+<span class="string">''</span><span class="string">' then Result else 0 end) ['</span>+Subject+<span class="string">']'</span></div><div class="line">from (select distinct Subject from cj) as cj  </div><div class="line">Select @sql = @sql+<span class="string">' from cj group by name'</span></div><div class="line">Exec (@sql)</div></pre></td></tr></table></figure>
+<h2 id="Tip2-Transformation-Between-Column-and-Row—–Merge"><a href="#Tip2-Transformation-Between-Column-and-Row—–Merge" class="headerlink" title="Tip2:Transformation Between Column and Row—–Merge"></a>Tip2:Transformation Between Column and Row—–Merge</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">Create table ClassNo  --create table ClassNo</div><div class="line">(</div><div class="line">    ID Int IDENTITY(1,1)  not null,  --create column ID</div><div class="line">    Class  Varchar(50),    </div><div class="line">    Number Varchar(50),    </div><div class="line">    Primary Key(ID)        </div><div class="line">);</div><div class="line">--Truncate Table ClassNo</div><div class="line">--Select * from ClassNo</div><div class="line">Insert Into ClassNo</div><div class="line">Select 1,1 Union all</div><div class="line">Select 1,2 Union all</div><div class="line">Select 1,3 Union all</div><div class="line">Select 2,1 Union all</div><div class="line">Select 2,2 Union all</div><div class="line">Select 3,1</div><div class="line">--create a merge <span class="keyword">function</span></div><div class="line">--Drop Function KFReturn</div><div class="line">Create Function KFReturn(@Class Varchar(50))</div><div class="line">Returns Varchar(8000)</div><div class="line">as </div><div class="line">Begin</div><div class="line">Declare @str Varchar(8000)</div><div class="line">Set @str = <span class="string">''</span></div><div class="line">Select @str = @str + cast(Number as Varchar(50))  + <span class="string">','</span> from ClassNo Where Class = @Class </div><div class="line">Set @str = SubString(@str,1,len(@str)-1)</div><div class="line">Return(@str)</div><div class="line">End</div><div class="line"></div><div class="line">--get the result by calling self-defined <span class="keyword">function</span>  </div><div class="line">Select Distinct Class,dbo.KFReturn(Class) From ClassNo</div></pre></td></tr></table></figure>
+<h2 id="Tip3-Columns-Transformed-to-Rows"><a href="#Tip3-Columns-Transformed-to-Rows" class="headerlink" title="Tip3:Columns Transformed to Rows"></a>Tip3:Columns Transformed to Rows</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">--Drop Table ColumnToRow</div><div class="line">Create table ColumnToRow</div><div class="line">(</div><div class="line">   ID Int IDENTITY(1,1)  not null,  </div><div class="line">   a  int,</div><div class="line">   b  int,</div><div class="line">   c  int,</div><div class="line">   d  int,</div><div class="line">   e  int,</div><div class="line">   f  int,</div><div class="line">   g  int,</div><div class="line">   h  int,</div><div class="line">   Primary Key(ID)             </div><div class="line">);</div><div class="line">--Truncate Table ColumnToRow </div><div class="line">--Select * from ColumnToRow</div><div class="line">Insert Into ColumnToRow </div><div class="line">Select 15,9,1,0,1,2,4,2 Union all</div><div class="line">Select 22,34,44,5,6,7,8,7 Union all</div><div class="line">Select 33,44,55,66,77,88,99,12</div><div class="line"></div><div class="line">Declare @sql Varchar(8000)</div><div class="line">Set @sql = <span class="string">''</span></div><div class="line">Select @sql = @sql + rtrim(name) + <span class="string">' from ColumnToRow union all Select '</span> from SysColumns Where id = object_id(<span class="string">'ColumnToRow'</span>)</div><div class="line">Set @sql = SubString(@sql,1,len(@sql)-70)</div><div class="line">Exec (<span class="string">'Select '</span> + @sql + <span class="string">' from ColumnToRow'</span>)</div></pre></td></tr></table></figure>
+<h2 id="Tip4-Obtain-all-the-column-names-from-a-table"><a href="#Tip4-Obtain-all-the-column-names-from-a-table" class="headerlink" title="Tip4:Obtain all the column names from a table"></a>Tip4:Obtain all the column names from a table</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Declare @objid int,@objname char(40)</div><div class="line"></div><div class="line"><span class="built_in">set</span> @objname = <span class="string">'ColumnToRow'</span></div><div class="line"></div><div class="line">select name as <span class="string">'Column_name'</span> from syscolumns <span class="built_in">where</span> id = @objid order by colid</div><div class="line"></div><div class="line">Select name as <span class="string">'Column_Name'</span> from SysColumns <span class="built_in">where</span> id = object_id(@objname) Order by colid</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/21/Transform Between Column and Row etc Classic SQLs/" data-title="Transform Between Column and Row etc Classic SQLs" data-url="http://yoursite.com/2017/03/21/Transform Between Column and Row etc Classic SQLs/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"LeonJoe"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/21/SQL Server Trigger/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">SQL Server Trigger</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip1-Transformation-Between-Column-and-Row"><span class="toc-number">1.</span> <span class="toc-text">Tip1:Transformation Between Column and Row</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip2-Transformation-Between-Column-and-Row—–Merge"><span class="toc-number">2.</span> <span class="toc-text">Tip2:Transformation Between Column and Row—–Merge</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip3-Columns-Transformed-to-Rows"><span class="toc-number">3.</span> <span class="toc-text">Tip3:Columns Transformed to Rows</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip4-Obtain-all-the-column-names-from-a-table"><span class="toc-number">4.</span> <span class="toc-text">Tip4:Obtain all the column names from a table</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
+	      <p id="copyRightCn">John Doe hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

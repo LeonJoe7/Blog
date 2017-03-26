@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archivos: 2017/2 | Hexo</title>
+  <title>asp.net routing direction | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/02/index.html">
+  <meta name="description" content="By using the technique of Routing, we can easily build friendly urls which not only can be understanded by users,but also can achive the goal of SEO.
+1.Register Route table in Global123456789101112131">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ASP.NET Routing Direction">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/ASP.NET Routing Direction/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="By using the technique of Routing, we can easily build friendly urls which not only can be understanded by users,but also can achive the goal of SEO.
+1.Register Route table in Global123456789101112131">
+<meta property="og:updated_time" content="2017-03-15T07:08:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="ASP.NET Routing Direction">
+<meta name="twitter:description" content="By using the technique of Routing, we can easily build friendly urls which not only can be understanded by users,but also can achive the goal of SEO.
+1.Register Route table in Global123456789101112131">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -46,8 +53,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -72,7 +77,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -141,107 +146,108 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>Es gibt insgesamt 12 Beiträge bis jetzt.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/02/04/git-guide/" class="archive-article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-ASP.NET Routing Direction" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/git-guide/">Git-Guide</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      ASP.NET Routing Direction
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/ASP.NET Routing Direction/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.077Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>By using the technique of Routing, we can easily build friendly urls which not only can be understanded by users,but also can achive the goal of SEO.</p>
+<h2 id="1-Register-Route-table-in-Global"><a href="#1-Register-Route-table-in-Global" class="headerlink" title="1.Register Route table in Global"></a>1.Register Route table in Global</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">void Application_Start(object sender, EventArgs e)</div><div class="line">&#123;</div><div class="line">    // running code as the application starts</div><div class="line">    this.RegisterRoutes(RouteTable.Routes);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void RegisterRoutes(RouteCollection routes)</div><div class="line">&#123;</div><div class="line">    routes.MapPageRoute(<span class="string">"BookDetails"</span>,<span class="string">"book/details/&#123;index&#125;/&#123;keyword&#125;"</span>,<span class="string">"~/book/details.aspx"</span>,<span class="literal">false</span>,new <span class="function"><span class="title">RouteValueDictionary</span></span>() </div><div class="line">        &#123;</div><div class="line">            &#123; <span class="string">"index"</span>, <span class="string">"1"</span> &#125;,</div><div class="line">            &#123;<span class="string">"keyword"</span>, <span class="string">""</span>&#125;</div><div class="line">        &#125;</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-Generating-URL"><a href="#2-Generating-URL" class="headerlink" title="2.Generating URL"></a>2.Generating URL</h2><p>One way is hard coding, according the above rules we can have a matching URL:/book/details/23/aspx</p>
+<p>Of course, this way is not be recommended because of its difficult maintenance. Here we recommend VirtualPathData to generate virtual path.</p>
+<p>We need to provide matching route names and params list as we using it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RouteValueDictionary parameters = new <span class="function"><span class="title">RouteValueDictionary</span></span>()</div><div class="line">&#123; </div><div class="line">    &#123;<span class="string">"index"</span>, <span class="string">"19"</span> &#125;, </div><div class="line">    &#123;<span class="string">"keyword"</span>, <span class="string">"Tom"</span> &#125;, </div><div class="line">&#125;;</div><div class="line">VirtualPathData vpd = RouteTable.Routes.GetVirtualPath(null, <span class="string">"BookDetails"</span>, parameters);</div><div class="line">hlCreateURL.NavigateUrl = vpd.VirtualPath;</div></pre></td></tr></table></figure>
+<p>This code shows that vpd.VirtualPath generates Virtual URL by the rules of BookDetails.</p>
+<h2 id="3-Obtain-Parameter-Value"><a href="#3-Obtain-Parameter-Value" class="headerlink" title="3.Obtain Parameter Value"></a>3.Obtain Parameter Value</h2><p>By using Routing, we can not obtain URL Parameter by Request.QueryString collection.Because Routing is not rewriting URL, but it just transfer the process of URL to designated pages.</p>
+<p>Then we need the methods of Routing when we obtain the Parameter of web pages.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">this.Page.RouteData.Values[<span class="string">"index"</span>];</div><div class="line">this.Page.RouteData.Values[<span class="string">"keyword"</span>];</div></pre></td></tr></table></figure>
+<p>The whole flow is like this. Firstly,we need rules.Secondly,we need access address.Finally we should be able to get the true parameters.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/21/ASP.NET Routing Direction/" data-title="ASP.NET Routing Direction" data-url="http://yoursite.com/2017/03/21/ASP.NET Routing Direction/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"LeonJoe"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/21/C# Flags Direction in Enum/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          C# Flags Direction in Enum
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/ASP.NET Capture Global Untreated Exception/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">ASP.NET Capture Global Untreated Exception</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Register-Route-table-in-Global"><span class="toc-number">1.</span> <span class="toc-text">1.Register Route table in Global</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Generating-URL"><span class="toc-number">2.</span> <span class="toc-text">2.Generating URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Obtain-Parameter-Value"><span class="toc-number">3.</span> <span class="toc-text">3.Obtain Parameter Value</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/">Transform Between Column and Row etc Classic SQLs</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/SQL Server Trigger/">SQL Server Trigger</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Regex Matches HTML Tag /">Regex Matches HTML Tag</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Linq To Sql CRUD/">Linq To Sql CRUD</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Js&Jquery practical Skills Collection/">Js&amp;Jquery practical Skills Collection</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -332,6 +338,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 

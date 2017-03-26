@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Leon</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
@@ -93,9 +93,9 @@
 
         
           <div class="homelogoback"  style="border: 1px solid #404040;" >
-            <h1><a href="#content" id="logo">Leon Joe</a></h1>
-            <h3>A Free Soul</h3>
-            <h5>BLOG</h5>
+            <h1><a href="#content" id="logo">Hexo</a></h1>
+            <h3>null</h3>
+            <h5>John Doe</h5>
             <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
           </div>
         
@@ -136,11 +136,11 @@
   <div class="intro-navigate">
       <p class="navigater-list">
         
-          <a id="beautifont" class="main-nav-link" href="/">Home</a>
+          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
         
-          <a id="beautifont" class="main-nav-link" href="/archives">Archives</a>
+          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
         
-          <a id="beautifont" class="main-nav-link" href="/categories">Categories</a>
+          <a id="beautifont" class="main-nav-link" href="/categories">Categorías</a>
         
           <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
         
@@ -159,7 +159,7 @@
         
           <section id="main" style="float:none;">
   
-    <article id="post-git-guide"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-Transform Between Column and Row etc Classic SQLs"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -167,7 +167,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/04/git-guide/">Git-Guide</a>
+      <a class="article-title" href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/">Transform Between Column and Row etc Classic SQLs</a>
     </h1>
   
 
@@ -175,15 +175,209 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/04/git-guide/" class="article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
+	<a href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.104Z" itemprop="datePublished">2017-03-21</time>
 	</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to </p>
+        <h2 id="Tip1-Transformation-Between-Column-and-Row"><a href="#Tip1-Transformation-Between-Column-and-Row" class="headerlink" title="Tip1:Transformation Between Column and Row"></a>Tip1:Transformation Between Column and Row</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">create table cj  --Create Table cj</div><div class="line">(</div><div class="line">    ID       Int IDENTITY (1,1)     not null, </div><div class="line">    Name     Varchar(50),   </div><div class="line">    Subject  Varchar(50),</div><div class="line">    Result   Int,  </div><div class="line">    primary key (ID)      --define ID as PK of table cj      </div><div class="line">);</div><div class="line">--Truncate table cj</div><div class="line">--Select * from cj</div><div class="line">Insert into cj</div><div class="line">Select <span class="string">'John'</span>,<span class="string">'English'</span>,80 union all </div><div class="line">Select <span class="string">'Lily'</span>,<span class="string">'Math'</span>,90 union all</div><div class="line">Select <span class="string">'Bob'</span>,<span class="string">'Physics'</span>,85 union all</div><div class="line">Select <span class="string">'Robert'</span>,<span class="string">'PE'</span>,85 union all</div><div class="line">Select <span class="string">'Lily'</span>,<span class="string">'English'</span>,82 union all</div><div class="line">Select <span class="string">'Bob'</span>,<span class="string">'PE'</span>,90 union all</div><div class="line">Select <span class="string">'John'</span>,<span class="string">'Physics'</span>,70 union all</div><div class="line">Select <span class="string">'Robert'</span>,<span class="string">'English'</span>,90</div><div class="line">--transformation between column and row</div><div class="line">Declare @sql varchar(8000)</div><div class="line">Set @sql = <span class="string">'Select Name'</span></div><div class="line">Select @sql = @sql + <span class="string">',sum(case Subject when '</span><span class="string">''</span>+Subject+<span class="string">''</span><span class="string">' then Result else 0 end) ['</span>+Subject+<span class="string">']'</span></div><div class="line">from (select distinct Subject from cj) as cj  </div><div class="line">Select @sql = @sql+<span class="string">' from cj group by name'</span></div><div class="line">Exec (@sql)</div></pre></td></tr></table></figure>
+<h2 id="Tip2-Transformation-Between-Column-and-Row—–Merge"><a href="#Tip2-Transformation-Between-Column-and-Row—–Merge" class="headerlink" title="Tip2:Transformation Between Column and Row—–Merge"></a>Tip2:Transformation Between Column and Row—–Merge</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">Create table ClassNo  --create table ClassNo</div><div class="line">(</div><div class="line">    ID Int IDENTITY(1,1)  not null,  --create column ID</div><div class="line">    Class  Varchar(50),    </div><div class="line">    Number Varchar(50),    </div><div class="line">    Primary Key(ID)        </div><div class="line">);</div><div class="line">--Truncate Table ClassNo</div><div class="line">--Select * from ClassNo</div><div class="line">Insert Into ClassNo</div><div class="line">Select 1,1 Union all</div><div class="line">Select 1,2 Union all</div><div class="line">Select 1,3 Union all</div><div class="line">Select 2,1 Union all</div><div class="line">Select 2,2 Union all</div><div class="line">Select 3,1</div><div class="line">--create a merge <span class="keyword">function</span></div><div class="line">--Drop Function KFReturn</div><div class="line">Create Function KFReturn(@Class Varchar(50))</div><div class="line">Returns Varchar(8000)</div><div class="line">as </div><div class="line">Begin</div><div class="line">Declare @str Varchar(8000)</div><div class="line">Set @str = <span class="string">''</span></div><div class="line">Select @str = @str + cast(Number as Varchar(50))  + <span class="string">','</span> from ClassNo Where Class = @Class </div><div class="line">Set @str = SubString(@str,1,len(@str)-1)</div><div class="line">Return(@str)</div><div class="line">End</div><div class="line"></div><div class="line">--get the result by calling self-defined <span class="keyword">function</span>  </div><div class="line">Select Distinct Class,dbo.KFReturn(Class) From ClassNo</div></pre></td></tr></table></figure>
+<h2 id="Tip3-Columns-Transformed-to-Rows"><a href="#Tip3-Columns-Transformed-to-Rows" class="headerlink" title="Tip3:Columns Transformed to Rows"></a>Tip3:Columns Transformed to Rows</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">--Drop Table ColumnToRow</div><div class="line">Create table ColumnToRow</div><div class="line">(</div><div class="line">   ID Int IDENTITY(1,1)  not null,  </div><div class="line">   a  int,</div><div class="line">   b  int,</div><div class="line">   c  int,</div><div class="line">   d  int,</div><div class="line">   e  int,</div><div class="line">   f  int,</div><div class="line">   g  int,</div><div class="line">   h  int,</div><div class="line">   Primary Key(ID)             </div><div class="line">);</div><div class="line">--Truncate Table ColumnToRow </div><div class="line">--Select * from ColumnToRow</div><div class="line">Insert Into ColumnToRow </div><div class="line">Select 15,9,1,0,1,2,4,2 Union all</div><div class="line">Select 22,34,44,5,6,7,8,7 Union all</div><div class="line">Select 33,44,55,66,77,88,99,12</div><div class="line"></div><div class="line">Declare @sql Varchar(8000)</div><div class="line">Set @sql = <span class="string">''</span></div><div class="line">Select @sql = @sql + rtrim(name) + <span class="string">' from ColumnToRow union all Select '</span> from SysColumns Where id = object_id(<span class="string">'ColumnToRow'</span>)</div><div class="line">Set @sql = SubString(@sql,1,len(@sql)-70)</div><div class="line">Exec (<span class="string">'Select '</span> + @sql + <span class="string">' from ColumnToRow'</span>)</div></pre></td></tr></table></figure>
+<h2 id="Tip4-Obtain-all-the-column-names-from-a-table"><a href="#Tip4-Obtain-all-the-column-names-from-a-table" class="headerlink" title="Tip4:Obtain all the column names from a table"></a>Tip4:Obtain all the column names from a table</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Declare @objid int,@objname char(40)</div><div class="line"></div><div class="line"><span class="built_in">set</span> @objname = <span class="string">'ColumnToRow'</span></div><div class="line"></div><div class="line">select name as <span class="string">'Column_name'</span> from syscolumns <span class="built_in">where</span> id = @objid order by colid</div><div class="line"></div><div class="line">Select name as <span class="string">'Column_Name'</span> from SysColumns <span class="built_in">where</span> id = object_id(@objname) Order by colid</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-SQL Server Trigger"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/SQL Server Trigger/">SQL Server Trigger</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/SQL Server Trigger/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.098Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In SQL server,Trigger is a special stored procedure that can automatically trigger as it executes.</p>
+<p>Trigger in Sql Server includes:DML Trigger,DDL Trigger,Login Trigger</p>
+<p>Trigger has its rollback mechanism that it will roll back as this trigger has exception.</p>
+<p>Attention:Only the behavior that has the operation of log manipulation can activate the trigger.</p>
+<h2 id="Grammar-of-Creating-Trigger"><a href="#Grammar-of-Creating-Trigger" class="headerlink" title="Grammar of Creating Trigger"></a>Grammar of Creating Trigger</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">create trigger tgr_name</div><div class="line">on table_name</div><div class="line">with encrypion –encrypted trigger</div><div class="line">    <span class="keyword">for</span> update...</div><div class="line">as</div><div class="line">    Transact-SQL</div></pre></td></tr></table></figure>
+<h3 id="Create-Insert-Type-Trigger"><a href="#Create-Insert-Type-Trigger" class="headerlink" title="Create Insert Type Trigger"></a>Create Insert Type Trigger</h3><p>Insert Trigger will add a new note into the inserted table.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (object_id(<span class="string">'tgr_classes_insert'</span>, <span class="string">'tr'</span>) is not null)</div><div class="line">    drop trigger tgr_classes_insert</div><div class="line">go</div><div class="line">create trigger tgr_classes_insert</div><div class="line">on classes</div><div class="line">    <span class="keyword">for</span> insert --insert trigger</div><div class="line">as</div><div class="line">    --定义变量</div><div class="line">    <span class="built_in">declare</span> @id int, @name varchar(20), @temp int;</div><div class="line">    --search the inserted note <span class="keyword">in</span> inserted table</div><div class="line">    select @id = id, @name = name from inserted;</div><div class="line">    <span class="built_in">set</span> @name = @name + convert(varchar, @id);</div><div class="line">    <span class="built_in">set</span> @temp = @id / 2;    </div><div class="line">    insert into student values(@name, 18 + @id, @temp, @id);</div><div class="line">    <span class="built_in">print</span> <span class="string">'Add students successfully'</span>;</div><div class="line">go</div><div class="line">--insert data</div><div class="line">insert into classes values(<span class="string">'5班'</span>, getDate());</div><div class="line">--search data</div><div class="line">select * from classes;</div><div class="line">select * from student order by id;</div></pre></td></tr></table></figure>
+<h3 id="Create-Delete-Type-Trigger"><a href="#Create-Delete-Type-Trigger" class="headerlink" title="Create Delete Type Trigger"></a>Create Delete Type Trigger</h3><p>Delete Trigger will save data in the deleted table as deleting data.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (object_id(<span class="string">'tgr_classes_delete'</span>, <span class="string">'TR'</span>) is not null)</div><div class="line">    drop trigger tgr_classes_delete</div><div class="line">go</div><div class="line">create trigger tgr_classes_delete</div><div class="line">on classes</div><div class="line">    <span class="keyword">for</span> delete --delete trigger</div><div class="line">as</div><div class="line">    <span class="built_in">print</span> <span class="string">'backup data ……'</span>;    </div><div class="line">    <span class="keyword">if</span> (object_id(<span class="string">'classesBackup'</span>, <span class="string">'U'</span>) is not null)</div><div class="line">        --insert data directly when the table classesbackup exists</div><div class="line">        insert into classesBackup select name, createDate from deleted;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        --create <span class="keyword">then</span> insert data when the table classesbackup does not exists</div><div class="line">        select * into classesBackup from deleted;</div><div class="line">    <span class="built_in">print</span> <span class="string">'backup data successfully！'</span>;</div><div class="line">go</div><div class="line">--dont affect rows</div><div class="line">--set nocount on;</div><div class="line">delete classes <span class="built_in">where</span> name = <span class="string">'5 class'</span>;</div><div class="line">--search data</div><div class="line">select * from classes;</div><div class="line">select * from classesBackup;</div></pre></td></tr></table></figure>
+<h3 id="Create-Delete-Type-Trigger-1"><a href="#Create-Delete-Type-Trigger-1" class="headerlink" title="Create Delete Type Trigger"></a>Create Delete Type Trigger</h3><p>As update trigger updates data, the data before updating will be saved in deleted table while the data after updating will be saved in inserted table.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (object_id(<span class="string">'tgr_classes_update'</span>, <span class="string">'TR'</span>) is not null)</div><div class="line">    drop trigger tgr_classes_update</div><div class="line">go</div><div class="line">create trigger tgr_classes_update</div><div class="line">on classes</div><div class="line">    <span class="keyword">for</span> update</div><div class="line">as</div><div class="line">    <span class="built_in">declare</span> @oldName varchar(20), @newName varchar(20);</div><div class="line">    --data before updating</div><div class="line">    select @oldName = name from deleted;</div><div class="line">    <span class="keyword">if</span> (exists (select * from student <span class="built_in">where</span> name like <span class="string">'%'</span>+ @oldName + <span class="string">'%'</span>))</div><div class="line">        begin</div><div class="line">            --data after updating</div><div class="line">            select @newName = name from inserted;</div><div class="line">            update student <span class="built_in">set</span> name = replace(name, @oldName, @newName) <span class="built_in">where</span> name like <span class="string">'%'</span>+ @oldName + <span class="string">'%'</span>;</div><div class="line">            <span class="built_in">print</span> <span class="string">'update data successfully！'</span>;</div><div class="line">        end</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">print</span> <span class="string">'no need to change student table！'</span>;</div><div class="line">go</div><div class="line">--search data</div><div class="line">select * from student order by id;</div><div class="line">select * from classes;</div><div class="line">update classes <span class="built_in">set</span> name = <span class="string">'No.5 class'</span> <span class="built_in">where</span> name = <span class="string">'No.5 class'</span>;</div></pre></td></tr></table></figure>
+<h2 id="Alter-Trigger"><a href="#Alter-Trigger" class="headerlink" title="Alter Trigger"></a>Alter Trigger</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">alter trigger tgr_message</div><div class="line">on student</div><div class="line">after delete</div><div class="line">as raisError(<span class="string">'tgr_message trigger activate'</span>, 16, 10);</div><div class="line">go</div><div class="line">--test</div><div class="line">delete from student <span class="built_in">where</span> name = <span class="string">'lucy'</span>;</div></pre></td></tr></table></figure>
+<h2 id="Activate-or-Forbidden-Trigger"><a href="#Activate-or-Forbidden-Trigger" class="headerlink" title="Activate or Forbidden Trigger"></a>Activate or Forbidden Trigger</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">disable</span> trigger tgr_message on student;   --Forbidden Trigger</div><div class="line"></div><div class="line"><span class="built_in">enable</span> trigger tgr_message on student;    --Activate Trigger</div></pre></td></tr></table></figure>
+<h2 id="Search-Created-Trigger-Info"><a href="#Search-Created-Trigger-Info" class="headerlink" title="Search Created Trigger Info"></a>Search Created Trigger Info</h2><h3 id="Check-Existent-Trigger"><a href="#Check-Existent-Trigger" class="headerlink" title="Check Existent Trigger"></a>Check Existent Trigger</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">select * from sys.triggers;</div><div class="line">select * from sys.objects <span class="built_in">where</span> <span class="built_in">type</span> = <span class="string">'TR'</span>;</div></pre></td></tr></table></figure>
+<h3 id="Check-Trigger-Event"><a href="#Check-Trigger-Event" class="headerlink" title="Check Trigger Event"></a>Check Trigger Event</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">select te.* from sys.trigger_events te join sys.triggers t</div><div class="line">on t.object_id = te.object_id</div><div class="line"><span class="built_in">where</span> t.parent_class = 0 and t.name = <span class="string">'tgr_valid_data'</span>;</div></pre></td></tr></table></figure>
+<h3 id="Check-Trigger-Sentence"><a href="#Check-Trigger-Sentence" class="headerlink" title="Check Trigger Sentence"></a>Check Trigger Sentence</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">exec</span> sp_helptext <span class="string">'tgr_message'</span>;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Regex Matches HTML Tag "  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/Regex Matches HTML Tag /">Regex Matches HTML Tag</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/Regex Matches HTML Tag /" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.096Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="The-Regex-to-Match-Any-HTML-Tag"><a href="#The-Regex-to-Match-Any-HTML-Tag" class="headerlink" title="The Regex to Match Any HTML Tag"></a>The Regex to Match Any HTML Tag</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;[\w]+)[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-div-Tag"><a href="#The-Regex-to-Match-div-Tag" class="headerlink" title="The Regex to Match div Tag"></a>The Regex to Match div Tag</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;div)[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-some-HTML-Tags"><a href="#The-Regex-to-Match-some-HTML-Tags" class="headerlink" title="The Regex to Match some HTML Tags"></a>The Regex to Match some HTML Tags</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;(div|span|h1))[^&gt;]*?&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Regex-to-Match-Tags-Include-ID"><a href="#The-Regex-to-Match-Tags-Include-ID" class="headerlink" title="The Regex to Match Tags Include ID"></a>The Regex to Match Tags Include ID</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;(?&lt;HtmlTag&gt;[\w]+)[^&gt;]*\s[iI][dD]=(?&lt;Quote&gt;[<span class="string">"']?)footer(?(Quote)\k&lt;Quote&gt;)[^&gt;]*?(/&gt;|&gt;((?&lt;Nested&gt;&lt;\k&lt;HtmlTag&gt;[^&gt;]*&gt;)|&lt;/\k&lt;HtmlTag&gt;&gt;(?&lt;-Nested&gt;)|.*?)*&lt;/\k&lt;HtmlTag&gt;&gt;)</span></div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Linq To Sql CRUD"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/Linq To Sql CRUD/">Linq To Sql CRUD</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/Linq To Sql CRUD/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.091Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Design-a-Class-Named-Book"><a href="#Design-a-Class-Named-Book" class="headerlink" title="Design a Class Named Book"></a>Design a Class Named Book</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div></pre></td><td class="code"><pre><div class="line">    [Table]</div><div class="line">    public class Book</div><div class="line">    &#123;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// Book ID</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column(IsPrimaryKey=<span class="literal">true</span>,DbType=(<span class="string">"bigint"</span>), IsDbGenerated=<span class="literal">true</span>)]</div><div class="line">        public Int64 bId &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// Book Name</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column]</div><div class="line">        public string Title &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// Unit Price</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column(DbType = <span class="string">"float"</span>)]</div><div class="line">        public <span class="built_in">float</span> Price &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// Author</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column]</div><div class="line">        public string Author &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// ISBN NO</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column]</div><div class="line">        public string ISBN &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">        /// &lt;summary&gt;</div><div class="line">        /// Version No</div><div class="line">        /// &lt;/summary&gt;</div><div class="line">        [Column(DbType = <span class="string">"rowversion"</span>, IsVersion=<span class="literal">true</span>)]</div><div class="line">        public byte[] Stamp &#123; get; <span class="built_in">set</span>; &#125;</div><div class="line">```  </div><div class="line"></div><div class="line"><span class="comment">## CRUD Operation to it</span></div><div class="line"></div><div class="line">``` bash    </div><div class="line">        private static void <span class="function"><span class="title">LinqToSql_Select</span></span>()</div><div class="line">        &#123;</div><div class="line">            DataContext context = new DataContext(string.Format(@<span class="string">"Data Source=&#123;0&#125;DB.sdf"</span>, AppDomain.CurrentDomain.BaseDirectory));</div><div class="line">            context.Log = Console.Out;  </div><div class="line"></div><div class="line">            var result = from book <span class="keyword">in</span> context.GetTable&lt;Book&gt;()</div><div class="line">                         <span class="built_in">where</span> book.Price &gt; 50 &amp;&amp; book.Title.Contains(<span class="string">"C#"</span>)</div><div class="line">                         orderby book.Price descending</div><div class="line">                         select book;</div><div class="line"></div><div class="line">            Console.WriteLine(result.Count());</div><div class="line"></div><div class="line">            Console.WriteLine(<span class="string">"Unit Price &gt; 20$："</span>);</div><div class="line">            foreach (var item <span class="keyword">in</span> result)    </div><div class="line">            &#123;</div><div class="line">                Console.WriteLine(item.Title);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private static void <span class="function"><span class="title">LinqToSql_Insert</span></span>()</div><div class="line">        &#123;</div><div class="line">            DataContext context = new DataContext(string.Format(@<span class="string">"Data Source=&#123;0&#125;DB.sdf"</span>, AppDomain.CurrentDomain.BaseDirectory));</div><div class="line">            context.Log = Console.Out;  </div><div class="line"></div><div class="line">            ITable books = context.GetTable&lt;Book&gt;();</div><div class="line"></div><div class="line">            Book book = new <span class="function"><span class="title">Book</span></span>() &#123; Title = <span class="string">"C#"</span>, Author = <span class="string">"Wrox"</span>, ISBN = <span class="string">"1235=23-233"</span>, Price = 138 &#125;;</div><div class="line">            books.InsertOnSubmit(book);</div><div class="line">            context.SubmitChanges();</div><div class="line"></div><div class="line">            Console.WriteLine(book.bId);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private static void <span class="function"><span class="title">LinqToSql_Update</span></span>()</div><div class="line">        &#123;</div><div class="line">            DataContext context = new DataContext(string.Format(@<span class="string">"Data Source=&#123;0&#125;DB.sdf"</span>, AppDomain.CurrentDomain.BaseDirectory));</div><div class="line">            context.Log = Console.Out;  </div><div class="line"></div><div class="line">            var books = from b <span class="keyword">in</span> context.GetTable&lt;Book&gt;()</div><div class="line">                       <span class="built_in">where</span> b.bId == 5</div><div class="line">                       select b;</div><div class="line"></div><div class="line">            Book book = books.First&lt;Book&gt;();</div><div class="line">            book.Title = <span class="string">"C#"</span>;</div><div class="line"></div><div class="line">            context.SubmitChanges();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        private static void <span class="function"><span class="title">LinqToSql_Delete</span></span>()</div><div class="line">        &#123;</div><div class="line">            DataContext context = new DataContext(string.Format(@<span class="string">"Data Source=&#123;0&#125;DB.sdf"</span>, AppDomain.CurrentDomain.BaseDirectory));</div><div class="line">            context.Log = Console.Out;  </div><div class="line"></div><div class="line">            Table&lt;Book&gt; books = context.GetTable&lt;Book&gt;();</div><div class="line"></div><div class="line">            var query = from b <span class="keyword">in</span> books</div><div class="line">                        <span class="built_in">where</span> b.bId == 5</div><div class="line">                        select b;</div><div class="line">            Book book = query.First&lt;Book&gt;();</div><div class="line"></div><div class="line">            books.DeleteOnSubmit(book);</div><div class="line">            context.SubmitChanges();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-Js&amp;Jquery practical Skills Collection"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/Js&Jquery practical Skills Collection/">Js&amp;Jquery practical Skills Collection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/Js&Jquery practical Skills Collection/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.084Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Tip1-Transformation-Between-Jquery-Object-and-DOM-Object"><a href="#Tip1-Transformation-Between-Jquery-Object-and-DOM-Object" class="headerlink" title="Tip1:Transformation Between Jquery Object and DOM Object"></a>Tip1:Transformation Between Jquery Object and DOM Object</h2><p>By using $(dom), DOM object can be transformed to Jquery object like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(document.getElementById(<span class="string">'#myDiv'</span>))</div><div class="line">```  </div><div class="line"></div><div class="line">Jquery object actually is a index, so we can get the Dom object by subscript,or we can use method get() to obtain Dom object.</div><div class="line"></div><div class="line">``` bash</div><div class="line">    $(<span class="string">"div"</span>)[0];　　　　//obtain the first Dom object</div><div class="line"></div><div class="line">　　$(<span class="string">"div"</span>).get(0);　　//obtain the first Dom object</div></pre></td></tr></table></figure>
+<h2 id="Tip2-Obtain-One-Object-of-Jquery-Object-Collection"><a href="#Tip2-Obtain-One-Object-of-Jquery-Object-Collection" class="headerlink" title="Tip2:Obtain One Object of Jquery Object Collection"></a>Tip2:Obtain One Object of Jquery Object Collection</h2><p>As to the obtained element collection,we can get one of them by using method eq() or get().</p>
+<p>eq() will return the Jquery object while get() and index will return dom object.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).eq(2).html(); 　　　　 //call Jquery object</div><div class="line">$(<span class="string">"div"</span>).get(2).innerHTML; 　 　//call DOM object</div></pre></td></tr></table></figure>
+<h2 id="Tip3-Extend-Necessary-Functions"><a href="#Tip3-Extend-Necessary-Functions" class="headerlink" title="Tip3:Extend Necessary Functions"></a>Tip3:Extend Necessary Functions</h2><p>Jquery provides us Extend() to extend necessary functions like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">　　sum: <span class="keyword">function</span>(num1, num2)&#123;<span class="built_in">return</span> num1+num2; &#125;,</div><div class="line">&#125;);                //extend sum() method into Jquery</div></pre></td></tr></table></figure>
+<p>We can call this sum() by calling $.sum().</p>
+<h2 id="Tip4-Add-Event-amp-Remove-Event"><a href="#Tip4-Add-Event-amp-Remove-Event" class="headerlink" title="Tip4:Add Event &amp; Remove Event"></a>Tip4:Add Event &amp; Remove Event</h2><p>It is convenient for a Jquery object to add event:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(fn);</div><div class="line"></div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>, fn);</div></pre></td></tr></table></figure>
+<p>JQuery provides a mechanism for a object event to handle some manipulation functions.When we add a click event, we still can continue to add other functions that will not cover previous function.</p>
+<p>We can use unbind() method to remove binded event:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).unbind();　　　　//Remove all the binded events</div><div class="line"></div><div class="line">$(<span class="string">'#btn'</span>).unbind(<span class="string">'click'</span>)　　//Remove binded click event</div></pre></td></tr></table></figure>
+<h2 id="Tip5-Jquery-Array-Manipulation"><a href="#Tip5-Jquery-Array-Manipulation" class="headerlink" title="Tip5:Jquery Array Manipulation"></a>Tip5:Jquery Array Manipulation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.each(obj, fn);</div></pre></td></tr></table></figure>
+<p>By using this method, we can traverse objects that usually is array or object.fn is processing function.</p>
+<p>This method could be used to manipulate JSON object.</p>
+<h2 id="Tip6-Page-Transformation"><a href="#Tip6-Page-Transformation" class="headerlink" title="Tip6:Page Transformation"></a>Tip6:Page Transformation</h2><p>We can directly assign a value of URL string for window.location.href to realize this function:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.location.href = <span class="string">'a.html'</span>;</div></pre></td></tr></table></figure>
+<h2 id="Tip7-JQuery-Trigger-Enter-Event"><a href="#Tip7-JQuery-Trigger-Enter-Event" class="headerlink" title="Tip7:JQuery Trigger Enter Event"></a>Tip7:JQuery Trigger Enter Event</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    $(<span class="string">'#target'</span>).bind(<span class="string">'keyup'</span>, <span class="keyword">function</span> (event) &#123;</div><div class="line">        <span class="keyword">if</span> (event.keyCode == 13) &#123;</div><div class="line">            alert(<span class="string">"Hello"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Tip8-Js-Timer"><a href="#Tip8-Js-Timer" class="headerlink" title="Tip8:Js Timer"></a>Tip8:Js Timer</h2><p>Js has two types of timers:setTimeout(‘fn’,t) &amp; setInterval(‘fn’,t),’fn’ is the method name of timed execution.</p>
+<p>setTimeout(‘fn’,t):it executes only once,it will be destroyed when it finished.  </p>
+<p>setInterval(‘fn’,t):it will execute all the time.</p>
 
       
     </div>
@@ -198,7 +392,7 @@
 <!-- Table of Contents -->
 
   
-    <article id="post-hello-world"  class="article article-type-post" itemscope itemprop="blogPost" >
+    <article id="post-C# Reflection Direction"  class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -206,7 +400,7 @@
         
   
     <h1 class="thumb" itemprop="name">
-      <a class="article-title" href="/2017/02/04/hello-world/">Hello World</a>
+      <a class="article-title" href="/2017/03/21/C# Reflection Direction/">C# Reflection Direction</a>
     </h1>
   
 
@@ -214,23 +408,40 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/04/hello-world/" class="article-date">
-	  <time datetime="2017-02-04T07:11:14.604Z" itemprop="datePublished">2017-02-04</time>
+	<a href="/2017/03/21/C# Reflection Direction/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.082Z" itemprop="datePublished">2017-03-21</time>
 	</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>Reflection can provide objects that encapsulate assembly,modules and types.</p>
+<p>By using reflection,We can dynamically build type instance, bind current object with types,or obtain types from current object.</p>
+<p>Then we can call types’ method and access its attributes and fields.</p>
+<h2 id="1-Load-Assembly-Dynamically"><a href="#1-Load-Assembly-Dynamically" class="headerlink" title="1.Load Assembly Dynamically"></a>1.Load Assembly Dynamically</h2><p>We can load assembly by the name of assembly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Assembly libAssembly = Assembly.Load(<span class="string">"Lib.Entity"</span>);</div></pre></td></tr></table></figure>
+<p>After getting assembly, we can obtain one or more types of this assembly.</p>
+<h2 id="2-Obtain-Types-of-Assembly"><a href="#2-Obtain-Types-of-Assembly" class="headerlink" title="2.Obtain Types of Assembly"></a>2.Obtain Types of Assembly</h2><p>If we know full name of a class,we can get the type of this class by the following method:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type bookType = libAssembly.GetType(<span class="string">"Lib.Entity.Book"</span>);</div></pre></td></tr></table></figure>
+<p>Or we can get all types of this class.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type[] allTypes = libAssembly.GetTypes();</div></pre></td></tr></table></figure>
+<h2 id="3-Create-Types’-Instance-Dynamically"><a href="#3-Create-Types’-Instance-Dynamically" class="headerlink" title="3.Create Types’ Instance Dynamically"></a>3.Create Types’ Instance Dynamically</h2><p>After getting types,we can create types’ instance according to types.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Lib.Entity.Book book = Activator.CreateInstance(bookType) as Lib.Entity.Book;</div></pre></td></tr></table></figure>
+<p>Actually when we know a type, creating types’ instance dynamically is not reasonable.</p>
+<p>I think we should instantiate a interface or a subclass here which is useful for IOC(Inversion of Control).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IBook bk = Activator.CreateInstance(bookType) as Lib.Entity.Book;</div></pre></td></tr></table></figure>
+<h2 id="4-Call-Types’-Methods"><a href="#4-Call-Types’-Methods" class="headerlink" title="4.Call Types’ Methods"></a>4.Call Types’ Methods</h2><p>After instantiating this type, we can call the methods of this type.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MethodInfo method = bookType.GetMethod(<span class="string">"GetBookString"</span>, BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.NonPublic);</div><div class="line">output(method.Invoke(book, null).ToString());</div></pre></td></tr></table></figure>
+<p>By using the method GetMethod() and coordinating with binding identifier, we not only can get the public methods,but also can get their private &amp; protected methods and call them.</p>
+<h2 id="5-Access-Fields-and-Attributes"><a href="#5-Access-Fields-and-Attributes" class="headerlink" title="5.Access Fields and Attributes"></a>5.Access Fields and Attributes</h2><p>We can get the information of attributes by method GetProperty();</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PropertyInfo info = bookType.GetProperty(<span class="string">"Title"</span>);</div></pre></td></tr></table></figure>
+<p>Also we can assign the value of attributes as the same to the fields.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">info.SetValue(book, value, null);</div></pre></td></tr></table></figure>
+<p>This technique that access fields and attributes is usually used in ORM.</p>
+<h2 id="6-Access-Attribute"><a href="#6-Access-Attribute" class="headerlink" title="6.Access Attribute"></a>6.Access Attribute</h2><p>This attribute is a decoration of type,method or field.We can obtain it as is runs.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bookType.GetCustomAttributes(<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>This technique is usually coordinating with the above technique to realize a framework of ORM.</p>
 
       
     </div>
@@ -245,7 +456,214 @@
 <!-- Table of Contents -->
 
   
+    <article id="post-C# Flags Direction in Enum"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/C# Flags Direction in Enum/">C# Flags Direction in Enum</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/C# Flags Direction in Enum/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.080Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Some useful functions like permission, execution mode could be stored as int type in DataBase.</p>
+<p>In C# We handle this with Enum.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">    [Flags]</div><div class="line">    public enum Permission</div><div class="line">    &#123;</div><div class="line">        create = 1,</div><div class="line">        <span class="built_in">read</span> = 2,</div><div class="line">        update = 4,</div><div class="line">        delete = 8,        </div><div class="line">    &#125;</div><div class="line">``` </div><div class="line"></div><div class="line">C<span class="comment"># operation on this type like this:</span></div><div class="line"></div><div class="line">``` bash</div><div class="line">Permission permission = Permission.create | Permission.read | Permission.update | Permission.delete;</div><div class="line">            Console.WriteLine(<span class="string">"1、Creating Enum, and assignment"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div><div class="line"></div><div class="line">            permission = (Permission)Enum.Parse(typeof(Permission), <span class="string">"5"</span>);</div><div class="line">            Console.WriteLine(<span class="string">"2、Transform by number strings"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div><div class="line"></div><div class="line">            permission = (Permission)Enum.Parse(typeof(Permission), <span class="string">"update, delete, read"</span>, <span class="literal">true</span>);</div><div class="line">            Console.WriteLine(<span class="string">"3、Transform by enum strings"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div><div class="line"></div><div class="line">            permission = (Permission)7;</div><div class="line">            Console.WriteLine(<span class="string">"4、Transform directly by numbers"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div><div class="line"></div><div class="line">            permission = permission &amp; ~Permission.read;</div><div class="line">            Console.WriteLine(<span class="string">"5、Delete an enum"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div><div class="line"></div><div class="line">            permission = permission|Permission.delete;</div><div class="line">            Console.WriteLine(<span class="string">"6、Add an Enum"</span>);</div><div class="line">            Console.WriteLine(permission.ToString());</div><div class="line">            Console.WriteLine((int)permission);</div></pre></td></tr></table></figure>
+<p>Judge it in the DataBase:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AND (@permission IS NULL OR @permission=0 OR permission &amp;@permission =@permission)</div></pre></td></tr></table></figure>
+<p>This sql can also judge more permissions.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ASP.NET Routing Direction"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/ASP.NET Routing Direction/">ASP.NET Routing Direction</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/ASP.NET Routing Direction/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.077Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>By using the technique of Routing, we can easily build friendly urls which not only can be understanded by users,but also can achive the goal of SEO.</p>
+<h2 id="1-Register-Route-table-in-Global"><a href="#1-Register-Route-table-in-Global" class="headerlink" title="1.Register Route table in Global"></a>1.Register Route table in Global</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">void Application_Start(object sender, EventArgs e)</div><div class="line">&#123;</div><div class="line">    // running code as the application starts</div><div class="line">    this.RegisterRoutes(RouteTable.Routes);</div><div class="line">&#125;</div><div class="line"></div><div class="line">void RegisterRoutes(RouteCollection routes)</div><div class="line">&#123;</div><div class="line">    routes.MapPageRoute(<span class="string">"BookDetails"</span>,<span class="string">"book/details/&#123;index&#125;/&#123;keyword&#125;"</span>,<span class="string">"~/book/details.aspx"</span>,<span class="literal">false</span>,new <span class="function"><span class="title">RouteValueDictionary</span></span>() </div><div class="line">        &#123;</div><div class="line">            &#123; <span class="string">"index"</span>, <span class="string">"1"</span> &#125;,</div><div class="line">            &#123;<span class="string">"keyword"</span>, <span class="string">""</span>&#125;</div><div class="line">        &#125;</div><div class="line">    );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="2-Generating-URL"><a href="#2-Generating-URL" class="headerlink" title="2.Generating URL"></a>2.Generating URL</h2><p>One way is hard coding, according the above rules we can have a matching URL:/book/details/23/aspx</p>
+<p>Of course, this way is not be recommended because of its difficult maintenance. Here we recommend VirtualPathData to generate virtual path.</p>
+<p>We need to provide matching route names and params list as we using it.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">RouteValueDictionary parameters = new <span class="function"><span class="title">RouteValueDictionary</span></span>()</div><div class="line">&#123; </div><div class="line">    &#123;<span class="string">"index"</span>, <span class="string">"19"</span> &#125;, </div><div class="line">    &#123;<span class="string">"keyword"</span>, <span class="string">"Tom"</span> &#125;, </div><div class="line">&#125;;</div><div class="line">VirtualPathData vpd = RouteTable.Routes.GetVirtualPath(null, <span class="string">"BookDetails"</span>, parameters);</div><div class="line">hlCreateURL.NavigateUrl = vpd.VirtualPath;</div></pre></td></tr></table></figure>
+<p>This code shows that vpd.VirtualPath generates Virtual URL by the rules of BookDetails.</p>
+<h2 id="3-Obtain-Parameter-Value"><a href="#3-Obtain-Parameter-Value" class="headerlink" title="3.Obtain Parameter Value"></a>3.Obtain Parameter Value</h2><p>By using Routing, we can not obtain URL Parameter by Request.QueryString collection.Because Routing is not rewriting URL, but it just transfer the process of URL to designated pages.</p>
+<p>Then we need the methods of Routing when we obtain the Parameter of web pages.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">this.Page.RouteData.Values[<span class="string">"index"</span>];</div><div class="line">this.Page.RouteData.Values[<span class="string">"keyword"</span>];</div></pre></td></tr></table></figure>
+<p>The whole flow is like this. Firstly,we need rules.Secondly,we need access address.Finally we should be able to get the true parameters.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-ASP.NET Capture Global Untreated Exception"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/ASP.NET Capture Global Untreated Exception/">ASP.NET Capture Global Untreated Exception</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/ASP.NET Capture Global Untreated Exception/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.075Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-HttpModule-Method-recommended"><a href="#1-HttpModule-Method-recommended" class="headerlink" title="1.HttpModule Method(recommended)"></a>1.HttpModule Method(recommended)</h2><p>Firstly,we need to define a HttpModule that watches the untreated exception:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public void Init(HttpApplication context)</div><div class="line">&#123;</div><div class="line">    context.Error += new EventHandler(context_Error);</div><div class="line">&#125;</div><div class="line">public void context_Error(object sender, EventArgs e)</div><div class="line">&#123;</div><div class="line">    //processing exception</div><div class="line">    HttpContext ctx = HttpContext.Current;</div><div class="line">    HttpResponse response = ctx.Response;</div><div class="line">    HttpRequest request = ctx.Request;</div><div class="line">    //obtain HttpUnhandledException including a actual exception</div><div class="line">    Exception ex = ctx.Server.GetLastError();</div><div class="line">    //actual exception</div><div class="line">    Exception iex = ex.InnerException;</div><div class="line">    response.Write(<span class="string">"Error Processing From ErrorModule&lt;br /&gt;"</span>);</div><div class="line">    response.Write(iex.Message);</div><div class="line">    ctx.Server.ClearError();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Secondly we add the configuration info to web.config:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;httpModules&gt;</div><div class="line">    &lt;add name=<span class="string">"errorCatchModule"</span> <span class="built_in">type</span>=<span class="string">"WebModules.ErrorHandlerModule, WebModules"</span> /&gt;</div><div class="line">&lt;/httpModules&gt;</div></pre></td></tr></table></figure>
+<p>Then we can handle the untreated exception from webapp.</p>
+<p>This method is usually adopted, which is in common use and easily augmentable.</p>
+<h2 id="2-Global-Method"><a href="#2-Global-Method" class="headerlink" title="2.Global Method"></a>2.Global Method</h2><p>There a method named Application_Error in Global.asax that will be called when application’s untreated exception happens.</p>
+<p>Here we add the processing code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">        void Application_Error(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            //obtain HttpUnhandledException including a actual exception</div><div class="line">            Exception ex = Server.GetLastError();</div><div class="line">            //actual exception</div><div class="line">            Exception iex = ex.InnerException;</div><div class="line">            string errorMsg = String.Empty;</div><div class="line">            string particular = String.Empty;</div><div class="line">            <span class="keyword">if</span> (iex != null)</div><div class="line">            &#123;</div><div class="line">                errorMsg = iex.Message;</div><div class="line">                particular = iex.StackTrace;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                errorMsg = ex.Message;</div><div class="line">                particular = ex.StackTrace;</div><div class="line">            &#125;</div><div class="line">            HttpContext.Current.Response.Write(<span class="string">"Error Processing From Global&lt;br /&gt;"</span>);</div><div class="line">            HttpContext.Current.Response.Write(errorMsg);</div><div class="line">            Server.ClearError();//处理完及时清理异常</div><div class="line">        &#125;</div><div class="line">```  </div><div class="line"></div><div class="line">This method also can obtain global untreated exception,but it is not <span class="keyword">in</span> common use and dumb.</div><div class="line"></div><div class="line">HttpModule is prior to the Application_Error from Global.</div><div class="line"></div><div class="line"><span class="comment">## 3.Page Level</span></div><div class="line"></div><div class="line">We can also add processing exception method named Page_Error to page.</div><div class="line"></div><div class="line">``` bash</div><div class="line">        protected void Page_Error(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            string errorMsg = String.Empty;</div><div class="line">            Exception currentError = Server.GetLastError();</div><div class="line">            errorMsg += <span class="string">"exception processing from page&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"System Error:&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"False Address:"</span> + Request.Url + <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"False Message:"</span> + currentError.Message + <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">            Response.Write(errorMsg);</div><div class="line">            Server.ClearError();//Clear Exception(otherwise it will trigger the global Application_Error event)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>This method is prior to HttpModule and Global.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-AngularJS Controller"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/AngularJS Controller/">AngularJS Controller</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/AngularJS Controller/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.073Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AngularJS controller can handle the data of AngularJS application. It is a common object of JavaScript.</p>
+<h2 id="AngularJS-Controller"><a href="#AngularJS-Controller" class="headerlink" title="AngularJS Controller"></a>AngularJS Controller</h2><p>AngularJS application is controlled by controller.</p>
+<p>ng-controller operation defines the application controller.</p>
+<p>Controller is a object of JavaScript,which is created by constructed function of standard JS object.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myCtrl"</span>&gt;</div><div class="line">firstName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">lastName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Name: &#123;&#123;firstName + <span class="string">" "</span> + lastName&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var app = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">app.controller(<span class="string">'myCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>;</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Application analysis：</p>
+<p>AngularJS application is defined by ng-app.The Application is running in <div></div></p>
+<p>ng-controller=”myCtrl” is an operation of AngularJS which defines a controller.</p>
+<p>myCtrl function is a function of JavaScript.</p>
+<p>AngularJS calls the controller by using the object of $scope that can save the object of AngularJS model.</p>
+<p>This controller creates two attributes(firstName and lastName) in the scope.</p>
+<p>ng-model operation binds the input scope with controller’s attributes(firstName and lastName).</p>
+<h2 id="Controller-Method"><a href="#Controller-Method" class="headerlink" title="Controller Method"></a>Controller Method</h2><p>The above demo shows a controller object with two attributes(firstName and lastName).</p>
+<p>The controller also has methods(variables and functions):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</div><div class="line">firstName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">lastName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Name: &#123;&#123;fullName()&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">var app = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">app.controller(<span class="string">'personCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>;</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>;</div><div class="line">    <span class="variable">$scope</span>.fullName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$scope</span>.firstName + <span class="string">" "</span> + <span class="variable">$scope</span>.lastName;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Controllers-from-external-file"><a href="#The-Controllers-from-external-file" class="headerlink" title="The Controllers from external file"></a>The Controllers from external file</h2><p>In large application project, controllers’re usually stored in external file.</p>
+<p>we shall copy the code from tag script to the external file named personController.js:</p>
+<p>The code from personController.js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []).controller(<span class="string">'personCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>,</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>,</div><div class="line">    <span class="variable">$scope</span>.fullName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$scope</span>.firstName + <span class="string">" "</span> + <span class="variable">$scope</span>.lastName;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</div><div class="line">First Name: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">Last Name: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Full Name: &#123;&#123;firstName + <span class="string">" "</span> + lastName&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">"personController.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="Other-Demos"><a href="#Other-Demos" class="headerlink" title="Other Demos"></a>Other Demos</h2><p>The following demo creates a new controller file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []).controller(<span class="string">'namesCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.names = [</div><div class="line">        &#123;name:<span class="string">'Jani'</span>,country:<span class="string">'Norway'</span>&#125;,</div><div class="line">        &#123;name:<span class="string">'Hege'</span>,country:<span class="string">'Sweden'</span>&#125;,</div><div class="line">        &#123;name:<span class="string">'Kai'</span>,country:<span class="string">'Denmark'</span>&#125;</div><div class="line">    ];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>This file is saved as namesController.js. Then we use this file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"namesCtrl"</span>&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li ng-repeat=<span class="string">"x in names"</span>&gt;</div><div class="line">    &#123;&#123; x.name + <span class="string">', '</span> + x.country &#125;&#125;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">"namesController.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Siguiente &raquo;</a>
+  </nav>
 
 </section>
         
@@ -258,9 +676,9 @@
 
   <div class="container">
       <div class="row">
-	      <p> Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hiker</a> </p>
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
 	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
-	      <p id="copyRightCn">Leon Joe</p>
+	      <p id="copyRightCn">John Doe hält Urheberrechtsansprüche.</p>
 	</div>
   </div>
 </footer>
@@ -393,7 +811,7 @@
             Hexo
           </div>
           <div class="panel-body">
-            Copyright © 2017 Hiker All Rights Reserved.
+            Copyright © 2017 John Doe All Rights Reserved.
           </div>
         </div>
       </div>

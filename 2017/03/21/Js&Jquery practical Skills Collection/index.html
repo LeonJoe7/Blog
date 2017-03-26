@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git-guide | Hexo</title>
+  <title>js&amp;jquery practical skills collection | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="Welcome to">
+  <meta name="description" content="Tip1:Transformation Between Jquery Object and DOM ObjectBy using $(dom), DOM object can be transformed to Jquery object like this:
+123456789$(document.getElementById(&apos;#myDiv&apos;))```  Jquery object actua">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-Guide">
-<meta property="og:url" content="http://yoursite.com/2017/02/04/git-guide/index.html">
+<meta property="og:title" content="Js&Jquery practical Skills Collection">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/Js&Jquery practical Skills Collection/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to">
-<meta property="og:updated_time" content="2017-02-04T07:29:51.031Z">
+<meta property="og:description" content="Tip1:Transformation Between Jquery Object and DOM ObjectBy using $(dom), DOM object can be transformed to Jquery object like this:
+123456789$(document.getElementById(&apos;#myDiv&apos;))```  Jquery object actua">
+<meta property="og:updated_time" content="2017-03-17T02:55:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-Guide">
-<meta name="twitter:description" content="Welcome to">
+<meta name="twitter:title" content="Js&Jquery practical Skills Collection">
+<meta name="twitter:description" content="Tip1:Transformation Between Jquery Object and DOM ObjectBy using $(dom), DOM object can be transformed to Jquery object like this:
+123456789$(document.getElementById(&apos;#myDiv&apos;))```  Jquery object actua">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -143,7 +146,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-git-guide" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-Js&amp;Jquery practical Skills Collection" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -151,7 +154,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Git-Guide
+      Js&amp;Jquery practical Skills Collection
     </h1>
   
 
@@ -159,15 +162,36 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/04/git-guide/" class="article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
+	<a href="/2017/03/21/Js&Jquery practical Skills Collection/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.084Z" itemprop="datePublished">2017-03-21</time>
 	</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to </p>
+        <h2 id="Tip1-Transformation-Between-Jquery-Object-and-DOM-Object"><a href="#Tip1-Transformation-Between-Jquery-Object-and-DOM-Object" class="headerlink" title="Tip1:Transformation Between Jquery Object and DOM Object"></a>Tip1:Transformation Between Jquery Object and DOM Object</h2><p>By using $(dom), DOM object can be transformed to Jquery object like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$(document.getElementById(<span class="string">'#myDiv'</span>))</div><div class="line">```  </div><div class="line"></div><div class="line">Jquery object actually is a index, so we can get the Dom object by subscript,or we can use method get() to obtain Dom object.</div><div class="line"></div><div class="line">``` bash</div><div class="line">    $(<span class="string">"div"</span>)[0];　　　　//obtain the first Dom object</div><div class="line"></div><div class="line">　　$(<span class="string">"div"</span>).get(0);　　//obtain the first Dom object</div></pre></td></tr></table></figure>
+<h2 id="Tip2-Obtain-One-Object-of-Jquery-Object-Collection"><a href="#Tip2-Obtain-One-Object-of-Jquery-Object-Collection" class="headerlink" title="Tip2:Obtain One Object of Jquery Object Collection"></a>Tip2:Obtain One Object of Jquery Object Collection</h2><p>As to the obtained element collection,we can get one of them by using method eq() or get().</p>
+<p>eq() will return the Jquery object while get() and index will return dom object.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"div"</span>).eq(2).html(); 　　　　 //call Jquery object</div><div class="line">$(<span class="string">"div"</span>).get(2).innerHTML; 　 　//call DOM object</div></pre></td></tr></table></figure>
+<h2 id="Tip3-Extend-Necessary-Functions"><a href="#Tip3-Extend-Necessary-Functions" class="headerlink" title="Tip3:Extend Necessary Functions"></a>Tip3:Extend Necessary Functions</h2><p>Jquery provides us Extend() to extend necessary functions like this:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$.extend(&#123;</div><div class="line">　　sum: <span class="keyword">function</span>(num1, num2)&#123;<span class="built_in">return</span> num1+num2; &#125;,</div><div class="line">&#125;);                //extend sum() method into Jquery</div></pre></td></tr></table></figure>
+<p>We can call this sum() by calling $.sum().</p>
+<h2 id="Tip4-Add-Event-amp-Remove-Event"><a href="#Tip4-Add-Event-amp-Remove-Event" class="headerlink" title="Tip4:Add Event &amp; Remove Event"></a>Tip4:Add Event &amp; Remove Event</h2><p>It is convenient for a Jquery object to add event:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).click(fn);</div><div class="line"></div><div class="line">$(<span class="string">'#btn'</span>).bind(<span class="string">'click'</span>, fn);</div></pre></td></tr></table></figure>
+<p>JQuery provides a mechanism for a object event to handle some manipulation functions.When we add a click event, we still can continue to add other functions that will not cover previous function.</p>
+<p>We can use unbind() method to remove binded event:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">'#btn'</span>).unbind();　　　　//Remove all the binded events</div><div class="line"></div><div class="line">$(<span class="string">'#btn'</span>).unbind(<span class="string">'click'</span>)　　//Remove binded click event</div></pre></td></tr></table></figure>
+<h2 id="Tip5-Jquery-Array-Manipulation"><a href="#Tip5-Jquery-Array-Manipulation" class="headerlink" title="Tip5:Jquery Array Manipulation"></a>Tip5:Jquery Array Manipulation</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$.each(obj, fn);</div></pre></td></tr></table></figure>
+<p>By using this method, we can traverse objects that usually is array or object.fn is processing function.</p>
+<p>This method could be used to manipulate JSON object.</p>
+<h2 id="Tip6-Page-Transformation"><a href="#Tip6-Page-Transformation" class="headerlink" title="Tip6:Page Transformation"></a>Tip6:Page Transformation</h2><p>We can directly assign a value of URL string for window.location.href to realize this function:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">window.location.href = <span class="string">'a.html'</span>;</div></pre></td></tr></table></figure>
+<h2 id="Tip7-JQuery-Trigger-Enter-Event"><a href="#Tip7-JQuery-Trigger-Enter-Event" class="headerlink" title="Tip7:JQuery Trigger Enter Event"></a>Tip7:JQuery Trigger Enter Event</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="title">function</span></span> () &#123;</div><div class="line">    $(<span class="string">'#target'</span>).bind(<span class="string">'keyup'</span>, <span class="keyword">function</span> (event) &#123;</div><div class="line">        <span class="keyword">if</span> (event.keyCode == 13) &#123;</div><div class="line">            alert(<span class="string">"Hello"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h2 id="Tip8-Js-Timer"><a href="#Tip8-Js-Timer" class="headerlink" title="Tip8:Js Timer"></a>Tip8:Js Timer</h2><p>Js has two types of timers:setTimeout(‘fn’,t) &amp; setInterval(‘fn’,t),’fn’ is the method name of timed execution.</p>
+<p>setTimeout(‘fn’,t):it executes only once,it will be destroyed when it finished.  </p>
+<p>setInterval(‘fn’,t):it will execute all the time.</p>
 
       
     </div>
@@ -177,7 +201,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/04/git-guide/" data-title="Git-Guide" data-url="http://yoursite.com/2017/02/04/git-guide/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/03/21/Js&Jquery practical Skills Collection/" data-title="Js&Jquery practical Skills Collection" data-url="http://yoursite.com/2017/03/21/Js&Jquery practical Skills Collection/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -204,15 +228,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/21/A Good User Interface/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/21/Linq To Sql CRUD/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          A Good User Interface
+          Linq To Sql CRUD
         
       </div>
     </a>
   
+  
+    <a href="/2017/03/21/C# Reflection Direction/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">C# Reflection Direction</div>
+    </a>
   
 </nav>
 
@@ -225,7 +254,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Inhalt</strong>
     
-    <ol class="toc">Nichts</ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip1-Transformation-Between-Jquery-Object-and-DOM-Object"><span class="toc-number">1.</span> <span class="toc-text">Tip1:Transformation Between Jquery Object and DOM Object</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip2-Obtain-One-Object-of-Jquery-Object-Collection"><span class="toc-number">2.</span> <span class="toc-text">Tip2:Obtain One Object of Jquery Object Collection</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip3-Extend-Necessary-Functions"><span class="toc-number">3.</span> <span class="toc-text">Tip3:Extend Necessary Functions</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip4-Add-Event-amp-Remove-Event"><span class="toc-number">4.</span> <span class="toc-text">Tip4:Add Event & Remove Event</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip5-Jquery-Array-Manipulation"><span class="toc-number">5.</span> <span class="toc-text">Tip5:Jquery Array Manipulation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip6-Page-Transformation"><span class="toc-number">6.</span> <span class="toc-text">Tip6:Page Transformation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip7-JQuery-Trigger-Enter-Event"><span class="toc-number">7.</span> <span class="toc-text">Tip7:JQuery Trigger Enter Event</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Tip8-Js-Timer"><span class="toc-number">8.</span> <span class="toc-text">Tip8:Js Timer</span></a></li></ol>
     
     </div>
   </aside>

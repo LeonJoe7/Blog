@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/home.css" >
+  
+
+  
+
+  
+
+</head>
+
+<body>
+  
+    <header id="header">
+
+  
+    <div id="intrologo" class="intro-logo" style="background-position:center; background-repeat:no-repeat; background-image: url(); background-size: auto 100%;">
+    <script>
+        var imgUrls = "css/images/home-bg.jpg,css/images/sample.jpg,http://t.cn/RMbvEza".split(",");
+        var random = Math.floor((Math.random() * imgUrls.length ));
+        if (imgUrls[random].startsWith('http') || imgUrls[random].indexOf('://') >= 0) {
+          document.getElementById("intrologo").style.backgroundImage='url(' + imgUrls[random] + ')';
+        } else {
+          document.getElementById("intrologo").style.backgroundImage='url(/' + imgUrls[random] + ')';
+        }
+    </script>
+  
+
+    <canvas width="100%" height="100%"></canvas>
+    <script>
+      var c = document.getElementsByTagName('canvas')[0],
+          x = c.getContext('2d'),
+          w = window.innerWidth,
+          h = window.innerHeight,
+          pr = window.devicePixelRatio || 1,
+          f = 90,
+          q,
+          m = Math,
+          r = 0,
+          u = m.PI*2,
+          v = m.cos,
+          z = m.random
+      c.width = w*pr
+      c.height = h*pr
+      x.scale(pr, pr)
+      x.globalAlpha = 0.6
+
+      
+    </script>
+    
+
+    
+      <div id="homelogo" class="homelogo" style="background: rgba(255,255,255,1);"> 
+    
+
+        
+          <div class="homelogoback"  style="border: 1px solid #404040;" >
+            <h1><a href="#content" id="logo">Hexo</a></h1>
+            <h3>null</h3>
+            <h5>John Doe</h5>
+            <!-- <p><a href="https://github.com/iTimeTraveler" target="_blank">Github</a></p> -->
+          </div>
+        
+    
+    </div>
+  </div>
+
+  <!-- 自适应主页背景大图 -->
+  
+    <script>
+        var img = new Image();
+        var intrologodiv = document.getElementById("intrologo");
+        img.src = intrologodiv.style.backgroundImage.replace('url(','').replace(')','').replace(/\"/gi, "");
+        img.onload=function(){
+          if (img.width / img.height <= document.body.clientWidth / document.body.clientHeight) {
+            intrologodiv.style.backgroundSize = "100% auto";
+          } else {
+            intrologodiv.style.backgroundSize = "auto 100%";
+          }
+        };
+    </script>
+ 
+
+ <!-- home_logo_image居中 -->
+ 
+    <script>
+        var homelogodiv = document.getElementById("homelogo");
+        if (document.all.homelogo.offsetWidth > document.body.clientWidth) {
+          homelogodiv.style.width = document.body.clientWidth + "px";
+          homelogodiv.style.marginLeft = document.body.clientWidth * -0.5 + "px";
+        } else {
+          homelogodiv.style.width = homelogodiv.clientWidth  + "px";
+          homelogodiv.style.marginLeft = (homelogodiv.clientWidth)  * -0.5 + "px";
+        }
+    </script>
+  
+
+  <div class="intro-navigate">
+      <p class="navigater-list">
+        
+          <a id="beautifont" class="main-nav-link" href="/">Startseite</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/archives">Archive</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/categories">Categorías</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/tags">Tags</a>
+        
+          <a id="beautifont" class="main-nav-link" href="/about">About</a>
+        
+      </p>
+  </div>
+
+</header>
+  
+  <div id="container">
+    <div id="wrap">
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;">
+  
+    <article id="post-A Good User Interface"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/03/21/A Good User Interface/">A Good User Interface</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/A Good User Interface/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.049Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A Good User Interface has high conversion rates and is easy to use. In other words, it’s nice to both the business side as well as the people using it. </p>
+<p>Here is a running idea list which we’re actively testing and writing exclusive stories about.</p>
+<h2 id="Tip1-Try-A-One-Column-Layout-instead-of-multicolumns"><a href="#Tip1-Try-A-One-Column-Layout-instead-of-multicolumns" class="headerlink" title="Tip1:Try A One Column Layout instead of multicolumns"></a>Tip1:Try A One Column Layout instead of multicolumns</h2><p>A one column layout will give you more control over your narrative. It should be able to guide your readers in a more predictable way from top to bottom. </p>
+<p>Whereas a multi column approach runs some additional risk of being distracting to the core purpose of a page. Guide people with a story and a prominent call to action at the end.</p>
+<h2 id="Tip2-Try-Giving-a-Gift-instead-of-closing-a-sale-right-away"><a href="#Tip2-Try-Giving-a-Gift-instead-of-closing-a-sale-right-away" class="headerlink" title="Tip2:Try Giving a Gift instead of closing a sale right away"></a>Tip2:Try Giving a Gift instead of closing a sale right away</h2><p>A friendly gesture such as providing a customer with a gift can be just that. Deeper underneath however, gifting is also an effective persuasion tactic that is based on the rule of reciprocity. </p>
+<p>As obvious as it sounds, being nice to someone by offering a small token of appreciation can come back in your favour down the road.</p>
+<h2 id="Tip3-Try-Merging-Similar-Functions-instead-of-fragmenting-the-UI"><a href="#Tip3-Try-Merging-Similar-Functions-instead-of-fragmenting-the-UI" class="headerlink" title="Tip3:Try Merging Similar Functions instead of fragmenting the UI"></a>Tip3:Try Merging Similar Functions instead of fragmenting the UI</h2><p>Over the course of time, it’s easy to unintentionally create multiple sections, elements and features which all perform the same function. </p>
+<p>It’s basic entropy - things start falling apart over time. Keep an eye out for duplicate functionality labelled in various ways, as it puts a strain on your customers. </p>
+<p>Often, the more UI fragmentation there is, the higher the learning curve which your customers will have to deal with. Consider refactoring your UI once in a while by merging similar functions together.</p>
+<h2 id="Tip4-Try-Social-Proof-instead-of-talking-about-yourself"><a href="#Tip4-Try-Social-Proof-instead-of-talking-about-yourself" class="headerlink" title="Tip4:Try Social Proof instead of talking about yourself"></a>Tip4:Try Social Proof instead of talking about yourself</h2><p>Social proof is another great persuasion tactic directly applicable to increasing conversion rates. </p>
+<p>Seeing that others are endorsing you and talking about your offering, can be a great way to reinforce a call to action. Try a testimonial or showing data which proves that others are present.</p>
+<h2 id="Tip5-Try-Repetition-instead-of-showing-it-just-once"><a href="#Tip5-Try-Repetition-instead-of-showing-it-just-once" class="headerlink" title="Tip5:Try Repetition instead of showing it just once"></a>Tip5:Try Repetition instead of showing it just once</h2><p>Repeating your call to action is a strategy that is more applicable to longer pages, or repeating across numerous pages. </p>
+<p>Surely you don’t want to have your offer displayed 10 times all on the same screen and frustrate people. </p>
+<p>However, long pages are becoming the norm and the idea of squeezing everything “above the fold” is fading. </p>
+<p>It doesn’t hurt to have one soft actionable item at the top, and another prominent one at the bottom. </p>
+<p>When people reach the bottom, they pause and think what to do next - a potential solid place to make an offer or close a deal.</p>
+<h2 id="Tip6-Try-Distinct-Clickable-Selected-Styles-instead-of-blurring-them"><a href="#Tip6-Try-Distinct-Clickable-Selected-Styles-instead-of-blurring-them" class="headerlink" title="Tip6:Try Distinct Clickable/Selected Styles instead of blurring them"></a>Tip6:Try Distinct Clickable/Selected Styles instead of blurring them</h2><p>Visual styling such as color, depth, and contrast may be used as a reliable cue to help people understand the fundamental language of navigating your interface: where am I, and where can I go. </p>
+<p>In order to communicate this clearly to your users, the styles of your clickable actions (links, buttons), selected elements (chosen items), and plain text should be clearly distinct from one another and then applied consistently across an interface. </p>
+<p>In the visual example, I’ve chosen a blue color to suggest anything that can be clicked on, and black as anything that has been selected or indicates where someone is. </p>
+<p>When applied properly, people will more easily learn and use these cues to navigate your interface. Don’t make it harder for people by blurring these three functional styles.</p>
+<h2 id="Tip7-Try-Recommending-instead-of-showing-equal-choices"><a href="#Tip7-Try-Recommending-instead-of-showing-equal-choices" class="headerlink" title="Tip7:Try Recommending instead of showing equal choices"></a>Tip7:Try Recommending instead of showing equal choices</h2><p>When showing multiple offers, then an emphasized product suggestion might be a good idea as some people need a little nudge. </p>
+<p>I believe there are some psychology studies out there which suggest that the more choice there is, then the lower the chances of a decision actually being made and acted upon. </p>
+<p>In order to combat such analysis paralysis, try emphasizing and highlighting certain options above others.</p>
+<h2 id="Tip8-Try-Undos-instead-of-prompting-for-confirmation"><a href="#Tip8-Try-Undos-instead-of-prompting-for-confirmation" class="headerlink" title="Tip8:Try Undos instead of prompting for confirmation"></a>Tip8:Try Undos instead of prompting for confirmation</h2><p>Imagine that you just pressed an action button or link. Undos respect the initial human intent by allowing the action to happen smoothly first and foremost. </p>
+<p>Prompts on the other hand suggest to the user that he or she does not know what they are doing by questioning their intent at all times. </p>
+<p>I would assume that most of the time human actions are intended and only in small situations are they accidental. </p>
+<p>The inefficiency and ugliness of prompts is visible when users have to perform actions repeatedly and are prompted numerously over and over - a dehumanizing experience. </p>
+<p>Consider making your users feel more in control by enabling the ability to undo actions and not asking for confirmation where possible.</p>
+<h2 id="Tip9-Try-Telling-Who-It’s-For-instead-of-targeting-everyone"><a href="#Tip9-Try-Telling-Who-It’s-For-instead-of-targeting-everyone" class="headerlink" title="Tip9:Try Telling Who It’s For instead of targeting everyone"></a>Tip9:Try Telling Who It’s For instead of targeting everyone</h2><p>Are you targeting everyone or are you precise with your audience? This is a conversion idea where you could be explicit about who exactly your product or service is intended for. </p>
+<p>By communicating the qualifying criteria of your customers, you might be able to actually connect more with them while at the same time hinting at a feeling of exclusivity. </p>
+<p>The risk with this strategy of course is that you might be cutting yourself short and restricting potential customers. Then again, transparency builds trust. </p>
+<h2 id="Tip10-Try-Being-Direct-instead-of-indecisive"><a href="#Tip10-Try-Being-Direct-instead-of-indecisive" class="headerlink" title="Tip10:Try Being Direct instead of indecisive"></a>Tip10:Try Being Direct instead of indecisive</h2><p>You can send your message with uncertainty trembling in your voice, or you can say it with confidence. </p>
+<p>If you’re ending your messaging with question marks, using terms such as “perhaps”, “maybe”, “interested?” and “want to?”, then most likely you have some opportunity to be a bit more authoritative. </p>
+<p>Who knows, maybe there is a bit more room for telling people what to do next in the world of conversion optimization.</p>
+<p>……</p>
+<p>More info and reprint from: <a href="http://goodui.org/" target="_blank" rel="external">goodui</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+    <article id="post-git-guide"  class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" itemprop="name">
+      <a class="article-title" href="/2017/02/04/git-guide/">Git-Guide</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/02/04/git-guide/" class="article-date">
+	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- Table of Contents -->
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/">&laquo; Previo</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+
+</section>
+        
+      </div>
+      
+        <div align="center" style="margin-top: 30px;"><hr class="hr" style="margin:0px; height:3px;"></div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
+	      <p id="copyRightCn">John Doe hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+  <script src="/js/home.js"></script>
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>

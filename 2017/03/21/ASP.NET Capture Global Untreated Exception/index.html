@@ -3,22 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>git-guide | Hexo</title>
+  <title>asp.net capture global untreated exception | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta name="description" content="Welcome to">
+  <meta name="description" content="1.HttpModule Method(recommended)Firstly,we need to define a HttpModule that watches the untreated exception:
+123456789101112131415161718public void Init(HttpApplication context)&amp;#123;    context.Error">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git-Guide">
-<meta property="og:url" content="http://yoursite.com/2017/02/04/git-guide/index.html">
+<meta property="og:title" content="ASP.NET Capture Global Untreated Exception">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/ASP.NET Capture Global Untreated Exception/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to">
-<meta property="og:updated_time" content="2017-02-04T07:29:51.031Z">
+<meta property="og:description" content="1.HttpModule Method(recommended)Firstly,we need to define a HttpModule that watches the untreated exception:
+123456789101112131415161718public void Init(HttpApplication context)&amp;#123;    context.Error">
+<meta property="og:updated_time" content="2017-03-15T08:26:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Git-Guide">
-<meta name="twitter:description" content="Welcome to">
+<meta name="twitter:title" content="ASP.NET Capture Global Untreated Exception">
+<meta name="twitter:description" content="1.HttpModule Method(recommended)Firstly,we need to define a HttpModule that watches the untreated exception:
+123456789101112131415161718public void Init(HttpApplication context)&amp;#123;    context.Error">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -143,7 +146,7 @@
             
       <div id="content" class="outer">
         
-          <section id="main" style="float:none;"><article id="post-git-guide" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+          <section id="main" style="float:none;"><article id="post-ASP.NET Capture Global Untreated Exception" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
   <div id="articleInner" class="article-inner">
     
     
@@ -151,7 +154,7 @@
         
   
     <h1 class="thumb" class="article-title" itemprop="name">
-      Git-Guide
+      ASP.NET Capture Global Untreated Exception
     </h1>
   
 
@@ -159,15 +162,24 @@
     
     <div class="article-meta">
       
-	<a href="/2017/02/04/git-guide/" class="article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
+	<a href="/2017/03/21/ASP.NET Capture Global Untreated Exception/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.075Z" itemprop="datePublished">2017-03-21</time>
 	</a>
 
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to </p>
+        <h2 id="1-HttpModule-Method-recommended"><a href="#1-HttpModule-Method-recommended" class="headerlink" title="1.HttpModule Method(recommended)"></a>1.HttpModule Method(recommended)</h2><p>Firstly,we need to define a HttpModule that watches the untreated exception:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">public void Init(HttpApplication context)</div><div class="line">&#123;</div><div class="line">    context.Error += new EventHandler(context_Error);</div><div class="line">&#125;</div><div class="line">public void context_Error(object sender, EventArgs e)</div><div class="line">&#123;</div><div class="line">    //processing exception</div><div class="line">    HttpContext ctx = HttpContext.Current;</div><div class="line">    HttpResponse response = ctx.Response;</div><div class="line">    HttpRequest request = ctx.Request;</div><div class="line">    //obtain HttpUnhandledException including a actual exception</div><div class="line">    Exception ex = ctx.Server.GetLastError();</div><div class="line">    //actual exception</div><div class="line">    Exception iex = ex.InnerException;</div><div class="line">    response.Write(<span class="string">"Error Processing From ErrorModule&lt;br /&gt;"</span>);</div><div class="line">    response.Write(iex.Message);</div><div class="line">    ctx.Server.ClearError();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Secondly we add the configuration info to web.config:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;httpModules&gt;</div><div class="line">    &lt;add name=<span class="string">"errorCatchModule"</span> <span class="built_in">type</span>=<span class="string">"WebModules.ErrorHandlerModule, WebModules"</span> /&gt;</div><div class="line">&lt;/httpModules&gt;</div></pre></td></tr></table></figure>
+<p>Then we can handle the untreated exception from webapp.</p>
+<p>This method is usually adopted, which is in common use and easily augmentable.</p>
+<h2 id="2-Global-Method"><a href="#2-Global-Method" class="headerlink" title="2.Global Method"></a>2.Global Method</h2><p>There a method named Application_Error in Global.asax that will be called when application’s untreated exception happens.</p>
+<p>Here we add the processing code:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">        void Application_Error(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            //obtain HttpUnhandledException including a actual exception</div><div class="line">            Exception ex = Server.GetLastError();</div><div class="line">            //actual exception</div><div class="line">            Exception iex = ex.InnerException;</div><div class="line">            string errorMsg = String.Empty;</div><div class="line">            string particular = String.Empty;</div><div class="line">            <span class="keyword">if</span> (iex != null)</div><div class="line">            &#123;</div><div class="line">                errorMsg = iex.Message;</div><div class="line">                particular = iex.StackTrace;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">else</span></div><div class="line">            &#123;</div><div class="line">                errorMsg = ex.Message;</div><div class="line">                particular = ex.StackTrace;</div><div class="line">            &#125;</div><div class="line">            HttpContext.Current.Response.Write(<span class="string">"Error Processing From Global&lt;br /&gt;"</span>);</div><div class="line">            HttpContext.Current.Response.Write(errorMsg);</div><div class="line">            Server.ClearError();//处理完及时清理异常</div><div class="line">        &#125;</div><div class="line">```  </div><div class="line"></div><div class="line">This method also can obtain global untreated exception,but it is not <span class="keyword">in</span> common use and dumb.</div><div class="line"></div><div class="line">HttpModule is prior to the Application_Error from Global.</div><div class="line"></div><div class="line"><span class="comment">## 3.Page Level</span></div><div class="line"></div><div class="line">We can also add processing exception method named Page_Error to page.</div><div class="line"></div><div class="line">``` bash</div><div class="line">        protected void Page_Error(object sender, EventArgs e)</div><div class="line">        &#123;</div><div class="line">            string errorMsg = String.Empty;</div><div class="line">            Exception currentError = Server.GetLastError();</div><div class="line">            errorMsg += <span class="string">"exception processing from page&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"System Error:&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"False Address:"</span> + Request.Url + <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">            errorMsg += <span class="string">"False Message:"</span> + currentError.Message + <span class="string">"&lt;br /&gt;"</span>;</div><div class="line">            Response.Write(errorMsg);</div><div class="line">            Server.ClearError();//Clear Exception(otherwise it will trigger the global Application_Error event)</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<p>This method is prior to HttpModule and Global.</p>
 
       
     </div>
@@ -177,7 +189,7 @@
 	<div id="comment">
 	
 	<!-- 多说评论框 start -->
-	 <div class="ds-thread" data-thread-key="/2017/02/04/git-guide/" data-title="Git-Guide" data-url="http://yoursite.com/2017/02/04/git-guide/"></div>
+	 <div class="ds-thread" data-thread-key="/2017/03/21/ASP.NET Capture Global Untreated Exception/" data-title="ASP.NET Capture Global Untreated Exception" data-url="http://yoursite.com/2017/03/21/ASP.NET Capture Global Untreated Exception/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
@@ -204,15 +216,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2017/03/21/A Good User Interface/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/03/21/ASP.NET Routing Direction/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Nuevo</strong>
       <div class="article-nav-title">
         
-          A Good User Interface
+          ASP.NET Routing Direction
         
       </div>
     </a>
   
+  
+    <a href="/2017/03/21/AngularJS Controller/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">AngularJS Controller</div>
+    </a>
   
 </nav>
 
@@ -225,7 +242,7 @@
     <div id="toc" class="toc-article">
     <strong class="toc-title">Inhalt</strong>
     
-    <ol class="toc">Nichts</ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-HttpModule-Method-recommended"><span class="toc-number">1.</span> <span class="toc-text">1.HttpModule Method(recommended)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Global-Method"><span class="toc-number">2.</span> <span class="toc-text">2.Global Method</span></a></li></ol>
     
     </div>
   </aside>

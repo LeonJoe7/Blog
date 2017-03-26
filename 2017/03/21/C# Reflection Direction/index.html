@@ -3,18 +3,25 @@
 <head>
   <meta charset="utf-8">
   
-  <title>archivos: 2017/2 | Hexo</title>
+  <title>c# reflection direction | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
   
   
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2017/02/index.html">
+  <meta name="description" content="Reflection can provide objects that encapsulate assembly,modules and types.
+By using reflection,We can dynamically build type instance, bind current object with types,or obtain types from current obje">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C# Reflection Direction">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/C# Reflection Direction/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Reflection can provide objects that encapsulate assembly,modules and types.
+By using reflection,We can dynamically build type instance, bind current object with types,or obtain types from current obje">
+<meta property="og:updated_time" content="2017-03-16T05:52:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="C# Reflection Direction">
+<meta name="twitter:description" content="Reflection can provide objects that encapsulate assembly,modules and types.
+By using reflection,We can dynamically build type instance, bind current object with types,or obtain types from current obje">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -46,8 +53,6 @@
   
 
   
-    <link rel="stylesheet" href="/css/archive.css" >
-  
 
 </head>
 
@@ -72,7 +77,7 @@
             
               <a class="brand" style="
                  margin-top: 0px;"  
-                 >
+                href="#" data-toggle="modal" data-target="#myModal" >
                   <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
               </a>
             
@@ -141,107 +146,123 @@
             
       <div id="content" class="outer">
         
-          <section id="main">
-  <div class="archives-tags-wrap"><blockquote><span>Es gibt insgesamt 12 Beiträge bis jetzt.</span></blockquote>
-
-
-<!-- 分页显示 -->
-
-	
-	
-		
-		
-		  
-		  
-		  <section class="archives-wrap">
-		    <div class="archive-year-wrap">
-		      <h1><a href="/archives/2017" class="archive-year">2017</a></h1>
-		    </div>
-		    <div class="archives">
-		
-		<article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      
-	<a href="/2017/02/04/git-guide/" class="archive-article-date">
-	  <time datetime="2017-02-04T07:28:31.772Z" itemprop="datePublished">2017-02-04</time>
-	</a>
-
-      
+          <section id="main" style="float:none;"><article id="post-C# Reflection Direction" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="thumb" itemprop="name">
-      <a class="archive-article-title" href="/2017/02/04/git-guide/">Git-Guide</a>
+    <h1 class="thumb" class="article-title" itemprop="name">
+      C# Reflection Direction
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/C# Reflection Direction/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.082Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Reflection can provide objects that encapsulate assembly,modules and types.</p>
+<p>By using reflection,We can dynamically build type instance, bind current object with types,or obtain types from current object.</p>
+<p>Then we can call types’ method and access its attributes and fields.</p>
+<h2 id="1-Load-Assembly-Dynamically"><a href="#1-Load-Assembly-Dynamically" class="headerlink" title="1.Load Assembly Dynamically"></a>1.Load Assembly Dynamically</h2><p>We can load assembly by the name of assembly.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Assembly libAssembly = Assembly.Load(<span class="string">"Lib.Entity"</span>);</div></pre></td></tr></table></figure>
+<p>After getting assembly, we can obtain one or more types of this assembly.</p>
+<h2 id="2-Obtain-Types-of-Assembly"><a href="#2-Obtain-Types-of-Assembly" class="headerlink" title="2.Obtain Types of Assembly"></a>2.Obtain Types of Assembly</h2><p>If we know full name of a class,we can get the type of this class by the following method:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type bookType = libAssembly.GetType(<span class="string">"Lib.Entity.Book"</span>);</div></pre></td></tr></table></figure>
+<p>Or we can get all types of this class.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Type[] allTypes = libAssembly.GetTypes();</div></pre></td></tr></table></figure>
+<h2 id="3-Create-Types’-Instance-Dynamically"><a href="#3-Create-Types’-Instance-Dynamically" class="headerlink" title="3.Create Types’ Instance Dynamically"></a>3.Create Types’ Instance Dynamically</h2><p>After getting types,we can create types’ instance according to types.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Lib.Entity.Book book = Activator.CreateInstance(bookType) as Lib.Entity.Book;</div></pre></td></tr></table></figure>
+<p>Actually when we know a type, creating types’ instance dynamically is not reasonable.</p>
+<p>I think we should instantiate a interface or a subclass here which is useful for IOC(Inversion of Control).</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">IBook bk = Activator.CreateInstance(bookType) as Lib.Entity.Book;</div></pre></td></tr></table></figure>
+<h2 id="4-Call-Types’-Methods"><a href="#4-Call-Types’-Methods" class="headerlink" title="4.Call Types’ Methods"></a>4.Call Types’ Methods</h2><p>After instantiating this type, we can call the methods of this type.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MethodInfo method = bookType.GetMethod(<span class="string">"GetBookString"</span>, BindingFlags.Instance | BindingFlags.IgnoreCase | BindingFlags.Public | BindingFlags.NonPublic);</div><div class="line">output(method.Invoke(book, null).ToString());</div></pre></td></tr></table></figure>
+<p>By using the method GetMethod() and coordinating with binding identifier, we not only can get the public methods,but also can get their private &amp; protected methods and call them.</p>
+<h2 id="5-Access-Fields-and-Attributes"><a href="#5-Access-Fields-and-Attributes" class="headerlink" title="5.Access Fields and Attributes"></a>5.Access Fields and Attributes</h2><p>We can get the information of attributes by method GetProperty();</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PropertyInfo info = bookType.GetProperty(<span class="string">"Title"</span>);</div></pre></td></tr></table></figure>
+<p>Also we can assign the value of attributes as the same to the fields.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">info.SetValue(book, value, null);</div></pre></td></tr></table></figure>
+<p>This technique that access fields and attributes is usually used in ORM.</p>
+<h2 id="6-Access-Attribute"><a href="#6-Access-Attribute" class="headerlink" title="6.Access Attribute"></a>6.Access Attribute</h2><p>This attribute is a decoration of type,method or field.We can obtain it as is runs.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">bookType.GetCustomAttributes(<span class="literal">false</span>);</div></pre></td></tr></table></figure>
+<p>This technique is usually coordinating with the above technique to realize a framework of ORM.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/21/C# Reflection Direction/" data-title="C# Reflection Direction" data-url="http://yoursite.com/2017/03/21/C# Reflection Direction/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"LeonJoe"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/21/Js&Jquery practical Skills Collection/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          Js&amp;Jquery practical Skills Collection
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/C# Flags Direction in Enum/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">C# Flags Direction in Enum</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-	
-	
-		</div></section>
-	
 
-	<!-- 页数指示器 -->
-	
+<!-- Table of Contents -->
 
-
-
-
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Load-Assembly-Dynamically"><span class="toc-number">1.</span> <span class="toc-text">1.Load Assembly Dynamically</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Obtain-Types-of-Assembly"><span class="toc-number">2.</span> <span class="toc-text">2.Obtain Types of Assembly</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Create-Types’-Instance-Dynamically"><span class="toc-number">3.</span> <span class="toc-text">3.Create Types’ Instance Dynamically</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-Call-Types’-Methods"><span class="toc-number">4.</span> <span class="toc-text">4.Call Types’ Methods</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-Access-Fields-and-Attributes"><span class="toc-number">5.</span> <span class="toc-text">5.Access Fields and Attributes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-Access-Attribute"><span class="toc-number">6.</span> <span class="toc-text">6.Access Attribute</span></a></li></ol>
+    
+    </div>
+  </aside>
 </section>
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archivos</h3>
-
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a><span class="archive-list-count">11</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a><span class="archive-list-count">1</span></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Posts recientes</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/21/Transform Between Column and Row etc Classic SQLs/">Transform Between Column and Row etc Classic SQLs</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/SQL Server Trigger/">SQL Server Trigger</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Regex Matches HTML Tag /">Regex Matches HTML Tag</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Linq To Sql CRUD/">Linq To Sql CRUD</a>
-          </li>
-        
-          <li>
-            <a href="/2017/03/21/Js&Jquery practical Skills Collection/">Js&amp;Jquery practical Skills Collection</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
         
       </div>
       
@@ -332,6 +353,8 @@
 
 
 
+
+  <script src="/js/dialog.js"></script>
 
 
 

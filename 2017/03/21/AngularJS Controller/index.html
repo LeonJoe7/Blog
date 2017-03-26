@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>angularjs controller | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  
+  <meta name="description" content="AngularJS controller can handle the data of AngularJS application. It is a common object of JavaScript.
+AngularJS ControllerAngularJS application is controlled by controller.
+ng-controller operation d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS Controller">
+<meta property="og:url" content="http://yoursite.com/2017/03/21/AngularJS Controller/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="AngularJS controller can handle the data of AngularJS application. It is a common object of JavaScript.
+AngularJS ControllerAngularJS application is controlled by controller.
+ng-controller operation d">
+<meta property="og:updated_time" content="2017-03-15T06:33:53.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS Controller">
+<meta name="twitter:description" content="AngularJS controller can handle the data of AngularJS application. It is a common object of JavaScript.
+AngularJS ControllerAngularJS application is controlled by controller.
+ng-controller operation d">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  <link rel="icon" href="/css/images/mylogo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/9749f0/00000000000000000001008f/27/l?subset_id=2&fvd=n5) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/90cf9f/000000000000000000010091/27/l?subset_id=2&fvd=n7) format("woff2");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/8a5494/000000000000000000013365/27/l?subset_id=2&fvd=n4) format("woff2");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt;src:url(https://use.typekit.net/af/d337d8/000000000000000000010095/27/l?subset_id=2&fvd=i4) format("woff2");font-weight:400;font-style:italic;}</style>
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="/js/jquery-3.1.1.min.js"></script>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/css/bootstrap.css" >
+
+  
+    <link rel="stylesheet" href="/css/dialog.css">
+  
+
+  
+    <link rel="stylesheet" href="/css/header-post.css" >
+  
+
+  
+
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="124px" height="124px" alt="Hike News" src="/css/images/mylogo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/">Startseite</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/archives">Archive</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/categories">Categorías</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/tags">Tags</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/about">About</a> </li>
+                
+                  <li><div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Schreib etwas..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Beiträge',
+            PAGES: 'Seiten',
+            CATEGORIES: 'Kategorien',
+            TAGS: 'Tags',
+            UNTITLED: '(Unbenannt)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+            
+      <div id="content" class="outer">
+        
+          <section id="main" style="float:none;"><article id="post-AngularJS Controller" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  <div id="articleInner" class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      AngularJS Controller
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      
+	<a href="/2017/03/21/AngularJS Controller/" class="article-date">
+	  <time datetime="2017-03-21T14:29:32.073Z" itemprop="datePublished">2017-03-21</time>
+	</a>
+
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>AngularJS controller can handle the data of AngularJS application. It is a common object of JavaScript.</p>
+<h2 id="AngularJS-Controller"><a href="#AngularJS-Controller" class="headerlink" title="AngularJS Controller"></a>AngularJS Controller</h2><p>AngularJS application is controlled by controller.</p>
+<p>ng-controller operation defines the application controller.</p>
+<p>Controller is a object of JavaScript,which is created by constructed function of standard JS object.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"myCtrl"</span>&gt;</div><div class="line">firstName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">lastName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Name: &#123;&#123;firstName + <span class="string">" "</span> + lastName&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">var app = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">app.controller(<span class="string">'myCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>;</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>Application analysis：</p>
+<p>AngularJS application is defined by ng-app.The Application is running in <div></div></p>
+<p>ng-controller=”myCtrl” is an operation of AngularJS which defines a controller.</p>
+<p>myCtrl function is a function of JavaScript.</p>
+<p>AngularJS calls the controller by using the object of $scope that can save the object of AngularJS model.</p>
+<p>This controller creates two attributes(firstName and lastName) in the scope.</p>
+<p>ng-model operation binds the input scope with controller’s attributes(firstName and lastName).</p>
+<h2 id="Controller-Method"><a href="#Controller-Method" class="headerlink" title="Controller Method"></a>Controller Method</h2><p>The above demo shows a controller object with two attributes(firstName and lastName).</p>
+<p>The controller also has methods(variables and functions):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</div><div class="line">firstName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">lastName: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Name: &#123;&#123;fullName()&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script&gt;</div><div class="line">var app = angular.module(<span class="string">'myApp'</span>, []);</div><div class="line">app.controller(<span class="string">'personCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>;</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>;</div><div class="line">    <span class="variable">$scope</span>.fullName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$scope</span>.firstName + <span class="string">" "</span> + <span class="variable">$scope</span>.lastName;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="The-Controllers-from-external-file"><a href="#The-Controllers-from-external-file" class="headerlink" title="The Controllers from external file"></a>The Controllers from external file</h2><p>In large application project, controllers’re usually stored in external file.</p>
+<p>we shall copy the code from tag script to the external file named personController.js:</p>
+<p>The code from personController.js:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []).controller(<span class="string">'personCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.firstName = <span class="string">"John"</span>,</div><div class="line">    <span class="variable">$scope</span>.lastName = <span class="string">"Doe"</span>,</div><div class="line">    <span class="variable">$scope</span>.fullName = <span class="function"><span class="title">function</span></span>() &#123;</div><div class="line">        <span class="built_in">return</span> <span class="variable">$scope</span>.firstName + <span class="string">" "</span> + <span class="variable">$scope</span>.lastName;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"personCtrl"</span>&gt;</div><div class="line">First Name: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"firstName"</span>&gt;&lt;br&gt;</div><div class="line">Last Name: &lt;input <span class="built_in">type</span>=<span class="string">"text"</span> ng-model=<span class="string">"lastName"</span>&gt;&lt;br&gt;</div><div class="line">&lt;br&gt;</div><div class="line">Full Name: &#123;&#123;firstName + <span class="string">" "</span> + lastName&#125;&#125;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">"personController.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<h2 id="Other-Demos"><a href="#Other-Demos" class="headerlink" title="Other Demos"></a>Other Demos</h2><p>The following demo creates a new controller file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">angular.module(<span class="string">'myApp'</span>, []).controller(<span class="string">'namesCtrl'</span>, <span class="keyword">function</span>(<span class="variable">$scope</span>) &#123;</div><div class="line">    <span class="variable">$scope</span>.names = [</div><div class="line">        &#123;name:<span class="string">'Jani'</span>,country:<span class="string">'Norway'</span>&#125;,</div><div class="line">        &#123;name:<span class="string">'Hege'</span>,country:<span class="string">'Sweden'</span>&#125;,</div><div class="line">        &#123;name:<span class="string">'Kai'</span>,country:<span class="string">'Denmark'</span>&#125;</div><div class="line">    ];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>This file is saved as namesController.js. Then we use this file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;div ng-app=<span class="string">"myApp"</span> ng-controller=<span class="string">"namesCtrl"</span>&gt;</div><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li ng-repeat=<span class="string">"x in names"</span>&gt;</div><div class="line">    &#123;&#123; x.name + <span class="string">', '</span> + x.country &#125;&#125;</div><div class="line">  &lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;script src=<span class="string">"namesController.js"</span>&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      
+        
+	<div id="comment">
+	
+	<!-- 多说评论框 start -->
+	 <div class="ds-thread" data-thread-key="/2017/03/21/AngularJS Controller/" data-title="AngularJS Controller" data-url="http://yoursite.com/2017/03/21/AngularJS Controller/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"LeonJoe"};
+	  (function() {
+	    var ds = document.createElement('script');
+	    ds.type = 'text/javascript';ds.async = true;
+	    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+	    ds.charset = 'UTF-8';
+	    (document.getElementsByTagName('head')[0] 
+	     || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  })();
+	  </script>
+	<!-- 多说公共JS代码 end -->
+	
+	</div>
+
+
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/21/ASP.NET Capture Global Untreated Exception/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Nuevo</strong>
+      <div class="article-nav-title">
+        
+          ASP.NET Capture Global Untreated Exception
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/21/A Good User Interface/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Viejo</strong>
+      <div class="article-nav-title">A Good User Interface</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Inhalt</strong>
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AngularJS-Controller"><span class="toc-number">1.</span> <span class="toc-text">AngularJS Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Controller-Method"><span class="toc-number">2.</span> <span class="toc-text">Controller Method</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-Controllers-from-external-file"><span class="toc-number">3.</span> <span class="toc-text">The Controllers from external file</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Other-Demos"><span class="toc-number">4.</span> <span class="toc-text">Other Demos</span></a></li></ol>
+    
+    </div>
+  </aside>
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+  <div class="container">
+      <div class="row">
+	      <p> Construido por <a href="http://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/iTimeTraveler/hexo-theme-hiker" target="_blank">Hexo-theme-hiker</a> </p>
+	      <p id="copyRightEn">Copyright &copy; 2013 - 2017 Hexo All Rights Reserved.</p>
+	      <p id="copyRightCn">John Doe hält Urheberrechtsansprüche.</p>
+	</div>
+  </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+    var wrapdiv = document.getElementById("wrap");
+    var contentdiv = document.getElementById("content");
+    var allheader = document.getElementById("allheader");
+
+    wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+    if (allheader != null) {
+      contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    } else {
+      contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+    }
+</script>
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/categories" class="mobile-nav-link">Categories</a>
+  
+    <a href="/tags" class="mobile-nav-link">Tags</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav> -->
+    
+<div style="display: none;">
+  <script src="https://s11.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+</div>
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/bootstrap.js"></script>
+
+
+
+
+  <script src="/js/dialog.js"></script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            Hexo
+          </div>
+          <div class="panel-body">
+            Copyright © 2017 John Doe All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/js/totop.js?v=1.0.0" async=""></script>
+  
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+</body>
+</html>
